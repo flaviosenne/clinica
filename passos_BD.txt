@@ -1,0 +1,16 @@
+-----------------
+passo a psso para o funcionamento do backend
+
+1- na pasta backend (já dentro do visual studio) abra o terminal e executa o comando (npm init -y)
+obs* já ter instaldo o node.js
+2 - adicionar o framework express com o comando (npm add express)
+3 - adicionar a biblioteca mongoose com o comando (npm add mongoose)
+4 - abrir o arquivo package.json e alterar o valor do script test para ("node src/server.js")
+5 - para rodar o servidor coloque o comando (npm test)
+6 - só testar as navegações agora (para saber quais são as rotas, vai até o arquivo routes.js)
+7 - o primeiro parametro do método (post, get, put ou delete) é o caminho da rota e o segundo é a função que você está
+chamando ex:
+ 
+routes.get("/user", controller.index)
+
+para acessr essa  rota basta ir até o boomerang ou insomnia ou postman e colocar, http://localhost:(porta da aplicação)/user
