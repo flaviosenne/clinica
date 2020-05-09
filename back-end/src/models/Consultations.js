@@ -10,6 +10,12 @@ const ConsultationsScheme = new mongoose.Schema({
         ref: 'Pacient',
         required: true
     },
+    status: {
+        type: String,
+        require: true,
+        enum: ['Pendent', 'Finalized'],
+        default: 'Pendent'
+    },
     medic: {
         type: String,
         ref: 'Medic',

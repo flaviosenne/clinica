@@ -7,7 +7,7 @@ const ConsultationController = {}
 ConsultationController.create = async (req, res) => {
 
     try {
-        const { description, medic, pacient } = req.body;
+        const { description, medic, pacient, status } = req.body;
 
         var _id = medic
         const idMedic = await Medic.findOne({ _id })
@@ -19,11 +19,13 @@ ConsultationController.create = async (req, res) => {
             await Consultation.create({
                 description,
                 medic,
-                pacient
+                pacient,
+                status
             });
             return res.json({
                 Status: "Create Sucess",
                 description,
+                status,
                 medic: idMedic.name,
                 pacient: idPacient.name
             })
@@ -72,7 +74,7 @@ ConsultationController.getOne = async (req, res) => {
 ConsultationController.update = async (req, res) => {
 
     try {
-        const { description, medic, pacient } = req.body;
+        const { description, medic, pacient, status } = req.body;
 
         var _id = medic
         const idMedic = await Medic.findOne({ _id })
@@ -86,13 +88,14 @@ ConsultationController.update = async (req, res) => {
                 description,
                 medic,
                 pacient,
+                status
             })
-            if (obj) {// obj foi encontrado
-                //HTTP 204: No content
+            if (obj) {
                 return res.json({ 
                     description,
-                    idMedic,
-                    idPacient
+                    medic: idMedic.name,
+                    pacient: idPacient.name,
+                    status
                 }).end()
             }
             else {
