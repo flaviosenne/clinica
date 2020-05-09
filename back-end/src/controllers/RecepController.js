@@ -1,94 +1,128 @@
 const Recep = require('../models/Recep');
-
+const Medic = require('../models/Medic');
+const Pacient = require('../models/Pacient')
 const RecepController = {}
-    // async index(req, res) {
-    //     const owner = await Recep.find()
-    //     return res.json(owner);
-    // }
 
-    RecepController.create = async (req, res) => {
-        try {
-            const create = await Recep.create(req.body);
-            
-            return res.json({Status: "Create Sucess", create})
 
-        }
-        catch (err) {
-            return res.json().end();
-        }
-    }
+RecepController.create = async (req, res) => {
+    try {
+        const { prescription, medic, pacient } = req.body;
 
-     RecepController.read= async (req, res) => {
-        if (Object.keys(req.query).length > 0) {
-            this.read(req, res).end()
+        var _id = medic
+        const idMedic = await Medic.findOne({ _id })
+
+        _id = pacient
+        const idPacient = await Pacient.findOne({ _id })
+
+        if (idMedic && idPacient) {
+            await Recep.create({
+                prescription,
+                pacient,
+                medic
+            });
+            return res.json({status: "Create Sucess",
+                prescription,
+                medic: idMedic.name,
+                pacient: idPacient.name
+        })
         } else {
-            try {
-                const read = await Recep.find().populate('medic')
-                //é o terceiro parametro do mongoose.model no arquivo de model
-                return res.json(read).end()
-            } catch(err){
-                return res.json(err).end()
-            }
+            return res.json({ Status: "Not Found" }).end();
         }
+
+    }
+    catch (err) {
+        console.log(err)
+        return res.json({ Status: 'err' }).end();
     }
 
-    RecepController.getOne = async (req, res) =>{
-        // if(Object.keys(req.query).length > 0){
-        //     this.read(req, res)
-        
-            try{
-                const id = req.params.id
-                const get_one = await Recep.findById(id)
-                if(get_one){
-                    return res.send(get_one).end()
-                }
-                else{
-                    return res.status(404).end()
-                }
+}
+
+RecepController.read = async (req, res) => {
+    if (Object.keys(req.query).length > 0) {
+        this.read(req, res).end()
+    } else {
+        try {
+
+            const read = await Recep.find()
+                .populate({ path: 'pacient', select: 'name' })
+                .populate({ path: 'medic', select: 'name' })
+
+            return res.json(read).end()
+        } catch (err) {
+            return res.json(err).end()
+        }
+    }
+}
+
+RecepController.getOne = async (req, res) => {
+
+    try {
+        const id = req.params.id
+        const get_one = await Recep.findById(id)
+        if (get_one) {
+            return res.send(get_one).end()
+        }
+        else {
+            return res.status(404).end()
+        }
+    }
+    catch (err) {
+        return res.json(err)
+    }
+}
+
+RecepController.update = async (req, res) => {
+
+
+    try {
+        const { prescription, medic, pacient } = req.body;
+
+        var _id = medic
+        const idMedic = await Medic.findOne({ _id })
+
+        _id = pacient
+        const idPacient = await Pacient.findOne({ _id })
+
+        const id = req.body._id
+        if (idMedic && idPacient) {
+            const obj = await Recep.findByIdAndUpdate(id, {
+                prescription,
+                medic,
+                pacient
+            })
+            if (obj) {
+                return res.json({status: `${medic.name} e ${pacient.name} update sucesfull`}).end()
             }
-            catch(err){
-                return res.json(err)
+            else {
+                return res.send({ Status: "id invalid" }).end()
             }
         }
-
-        RecepController.update = async (req, res) =>{
-            // const id = req.params.id
-            // const user = await Recep.findByIdAndUpdate(id)
-
-            // return res.send(user)
-        
-            try {
-                const id = req.body._id
-                const obj = await Recep.findByIdAndUpdate(id, req.body)
-                if (obj) {// obj foi encontrado
-                    //HTTP 204: No content
-
-                    return res.send(obj).end()
-                } else {
-                    return res.send(obj).end()
-                }
-            }
-            catch (erro) {
-                console.log(erro)
-                return res.status(500).send(erro)
-            }
+        else {
+            return res.json({ status: "Pacient or Medic not found" }).end()
         }
 
-            RecepController.delete =async(req, res)=> {
-                try{
-                    const id = req.body._id
-                    const obj = await Recep.findByIdAndDelete(id)
-                    if(obj){
-                        res.json({status: `${obj.id} removed`})
-                    }else{
-                        res.json({status: `${obj.id} not found`})
-                    }
-                }
-                catch(err){
-                    res.json({status: `error`})
+    }
+    catch (erro) {
+        console.log(erro)
+        return res.status(500).send(erro)
+    }
+}
 
-                }
-            }
-            
+RecepController.delete = async (req, res) => {
+    try {
+        const id = req.body._id
+        const obj = await Recep.findByIdAndDelete(id)
+        if (obj) {
+            res.json({ status: `${obj.id} removed` })
+        } else {
+            res.json({ status: `${obj.id} not found` })
+        }
+    }
+    catch (err) {
+        res.json({ status: `error` })
 
-module.exports =  RecepController;
+    }
+}
+
+
+module.exports = RecepController;

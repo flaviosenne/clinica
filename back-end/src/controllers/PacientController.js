@@ -27,8 +27,6 @@ const PacientController = {
     },
 
     async getOne  (req, res) {
-        // if(Object.keys(req.query).length > 0){
-        //     this.read(req, res)
 
         try {
             const id = req.params.id

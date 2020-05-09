@@ -8,19 +8,20 @@ const ReceptionistController= require('./controllers/RecepcionistController');
 const RecepController= require('./controllers/RecepController');
 
 const route = Router();
+
 // Administrator
 route.post('/owner', OwnerController.create);
 route.get('/owner', OwnerController.read);
 route.get('/owner/:id', OwnerController.getOne);
 route.put('/owner', OwnerController.update);
-route.delete('/owner/:id', OwnerController.delete);
+route.delete('/owner', OwnerController.delete);
 
 // Consultation Medic
 route.post('/consultations', Consultations.create);
 route.get('/consultations', Consultations.read);
 route.get('/consultations/:id', Consultations.getOne);
 route.put('/consultations', Consultations.update);
-route.delete('/consultations/:id', Consultations.delete);
+route.delete('/consultations', Consultations.delete);
 
 // Pacient
 
@@ -51,4 +52,6 @@ route.get('/recep', RecepController.read);
 route.get('/recep/:id', RecepController.getOne);
 route.put('/recep', RecepController.update);
 route.delete('/recep', RecepController.delete);
+
+
 module.exports =  route;

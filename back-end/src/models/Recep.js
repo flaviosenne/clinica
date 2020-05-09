@@ -4,23 +4,22 @@ const RecepSchema = mongoose.Schema({
     
     date: {
         type: Date,
-        default: new Date,
+        default: Date.now(),
     },
-    pacient: {
-        type: mongoose.ObjectId,
-        ref: 'Pacient',
-        required: true,
-    }, 
-    medic:{
-        type: mongoose.ObjectId,
-        ref: 'Medic',
-        required: true,
-    },
-    
     prescription: {
         type: String,
         required: true,
     },
+    pacient: {
+        type: String,
+        ref: 'Pacient',
+        required: true,
+    }, 
+    medic:{
+        type: String,
+        ref: 'Medic',
+        required: true
+    }    
 })
 
 module.exports = mongoose.model('Recep', RecepSchema, 'recep');

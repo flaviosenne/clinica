@@ -3,10 +3,14 @@ const crypto = require('crypto')
 const id = crypto.randomBytes(4).toString('HEX')
 
 const MedicSchema = mongoose.Schema({
-    id: {
+    auth: {
         type: String,
-        default: id,
+        required: true
+    },
+    _id: {
+        type: String,
         required: true,
+        default: id,
     },
     crm: {
         type: Number,
@@ -39,7 +43,14 @@ const MedicSchema = mongoose.Schema({
     cpf:{
         type: String,
         required: true,
-    }
+    },
 });
+MedicSchema.pre('save', async function(next) {
+    const id = crypto.randomBytes(4).toString('HEX')
+    // const id = crypto.randomBytes(12).toString('HEX')
+    
+    this._id = id
+    next()
+})
 
 module.exports = mongoose.model('Medic', MedicSchema, 'medic');

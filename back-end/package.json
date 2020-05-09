@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "pm": "pm2 start src/server.js --name server-Clinica"
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.4"
+    "mongoose": "^5.9.4",
+    "pm2": "^4.2.3"
   },
   "devDependencies": {
     "crypto": "^1.0.1",

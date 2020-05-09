@@ -3,7 +3,11 @@ const crypto = require('crypto')
 const id = crypto.randomBytes(2).toString('HEX')
 
 const ReceptionistSchema = mongoose.Schema({
-    id: {
+    auth: {
+        type: String,
+        required: true
+    },
+    _id: {
         type: String,
         default: id,
         required: true,
@@ -37,5 +41,12 @@ const ReceptionistSchema = mongoose.Schema({
         required: true,
     }
 });
+ReceptionistSchema.pre('save', async function(next) {
+    const id = crypto.randomBytes(2).toString('HEX')
+    // const id = crypto.randomBytes(12).toString('HEX')
+
+    this._id = id
+    next()
+})
 
 module.exports = mongoose.model('Receptionist', ReceptionistSchema, 'receptionist');

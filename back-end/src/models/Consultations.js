@@ -1,26 +1,26 @@
 const mongoose = require('mongoose');
 
 const ConsultationsScheme = new mongoose.Schema({
-    namePatient: {
+    description: {
         type: String,
-        required: true,
+        required: true
     },
-    brithDate: {
+    pacient: {
         type: String,
-        required: true,
+        ref: 'Pacient',
+        required: true
     },
     medic: {
         type: String,
-        required: true,
+        ref: 'Medic',
+        required: true
     },
     date: {
-        type: String,
-        required: false,
-    },
-    description: {
-        type: String,
+        type: Date,
         required: true,
-    }
+        default: Date.now()
+    },
+    
 });
 
 module.exports = mongoose.model('Consultations', ConsultationsScheme, 'consultations');

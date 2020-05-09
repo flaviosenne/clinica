@@ -1,30 +1,40 @@
 const Recepcionist = require('../models/Recepcionist')
+const Owner = require('../models/Owner')
 const crypto = require('crypto')
 const RecepcionistController = {
-    async create (req, res) {
+    async create(req, res) {
         try {
             const id = crypto.randomBytes(2).toString('HEX')
-            const {name, contact, streat, number, city, uf, cpf} = req.body
-            console.log(id)
-            await Recepcionist.create({
-                id,
-                name,
-                contact,
-                streat,
-                number,
-                city, 
-                uf,
-                cpf    
-            });
-            return res.json({ Status: 'Create Sucessful' }).end()
+            const { name, contact, streat, number, city, uf, cpf } = req.body
 
+            const { auth } = req.body;
+            var _id = auth;
+            const acesso = await Owner.findOne({ _id })
+
+            if (acesso) {
+                await Recepcionist.create({
+                    auth,
+                    id,
+                    name,
+                    contact,
+                    streat,
+                    number,
+                    city,
+                    uf,
+                    cpf
+                });
+                return res.json({ Status: 'Create Sucessful' }).end()
+            } else {
+                return res.json({ Status: 'Ascess recused' }).end()
+
+            }
         }
         catch (err) {
-            return res.json().end();
+            return res.json(err).end();
         }
     },
 
-    async read (req, res) {
+    async read(req, res) {
         if (Object.keys(req.query).length > 0) {
             this.read(req, res).end()
         } else {
@@ -37,9 +47,7 @@ const RecepcionistController = {
         }
     },
 
-    async getOne  (req, res) {
-        // if(Object.keys(req.query).length > 0){
-        //     this.read(req, res)
+    async getOne(req, res) {
 
         try {
             const id = req.params.id
@@ -56,21 +64,25 @@ const RecepcionistController = {
         }
     },
 
-    async update (req, res) {
-        // const id = req.params.id
-        // const user = await Recepcionist.findByIdAndUpdate(id)
-
-        // return res.send(user)
+    async update(req, res) {
 
         try {
             const id = req.body._id
-            const obj = await Recepcionist.findByIdAndUpdate(id, req.body)
-            if (obj) {// obj foi encontrado
-                //HTTP 204: No content
+            const { auth } = req.body;
+            var _id = auth;
+            const acesso = await Owner.findOne({ _id })
 
-                return res.send(obj).end()
-            } else {
-                return res.send(obj).end()
+            if (acesso) {
+                const obj = await Recepcionist.findByIdAndUpdate(id, req.body)
+                if (obj) {
+
+                    return res.send(obj).end()
+                } else {
+                    return res.send(obj).end()
+                }
+            }
+            else {
+                return res.json({ Status: 'Ascess recused' }).end()
             }
         }
         catch (erro) {
@@ -79,14 +91,22 @@ const RecepcionistController = {
         }
     },
 
-    async remove (req, res) {
+    async remove(req, res) {
         try {
             const id = req.body._id
-            const obj = await Recepcionist.findByIdAndDelete(id)
-            if (obj) {
-                res.json({ status: `${obj.name} removed` })
+            const { auth } = req.body;
+            var _id = auth;
+            const acesso = await Owner.findOne({ _id })
+
+            if (acesso) {
+                const obj = await Recepcionist.findByIdAndDelete(id)
+                if (obj) {
+                    res.json({ status: `${obj.name} removed` })
+                } else {
+                    res.json({ status: `${obj.id} not found` })
+                }
             } else {
-                res.json({ status: `${obj.id} not found` })
+                return res.json({ Status: 'Ascess recused' }).end()
             }
         }
         catch (err) {
@@ -95,6 +115,6 @@ const RecepcionistController = {
         }
     }
 }
-            
+
 
 module.exports = RecepcionistController;
