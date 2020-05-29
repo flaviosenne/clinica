@@ -1,4 +1,4 @@
-const Recep = require('../models/Recep');
+const MedicalRecord = require('../models/MedicalRecord');
 const Consultations = require('../models/Consultations');
 const RecepController = {}
 
@@ -9,18 +9,14 @@ RecepController.create = async (req, res) => {
 
         var _id = consultation
         const idConsultation = await Consultations.findOne({ _id })
+
         
 
         if (idConsultation) {
-            await Recep.create({
+            await MedicalRecord.create({
                 prescription,
                 consultation
             });
-
-            // assim que o médico emitir a receita para o paciente
-            // automaticamento o status da consulta vai ser alterada para finalizada
-            await Consultations.findByIdAndUpdate(_id, {status: 'Finalized'})
-            
             return res.json({status: "Create Sucess",
                 prescription,
                 consultation
@@ -43,7 +39,7 @@ RecepController.read = async (req, res) => {
     } else {
         try {
 
-            const read = await Recep.find()
+            const read = await MedicalRecord.find()
                 .populate({ path: 'consultation', 
                 populate: {path: 'medic', select: 'name'}
                  })
@@ -63,7 +59,7 @@ RecepController.getOne = async (req, res) => {
 
     try {
         const id = req.params.id
-        const get_one = await Recep.findById(id)
+        const get_one = await MedicalRecord.findById(id)
         if (get_one) {
             return res.send(get_one).end()
         }
@@ -88,7 +84,7 @@ RecepController.update = async (req, res) => {
 
         const id = req.body._id
         if (consultation) {
-            const obj = await Recep.findByIdAndUpdate(id, {
+            const obj = await MedicalRecord.findByIdAndUpdate(id, {
                 prescription,
                 consultation
             })
@@ -113,7 +109,7 @@ RecepController.update = async (req, res) => {
 RecepController.delete = async (req, res) => {
     try {
         const id = req.body._id
-        const obj = await Recep.findByIdAndDelete(id)
+        const obj = await MedicalRecord.findByIdAndDelete(id)
         if (obj) {
             res.json({ status: `${obj.id} removed` })
         } else {

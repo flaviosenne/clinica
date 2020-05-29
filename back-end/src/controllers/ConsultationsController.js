@@ -74,7 +74,7 @@ ConsultationController.getOne = async (req, res) => {
 ConsultationController.update = async (req, res) => {
 
     try {
-        const { description, medic, pacient, status } = req.body;
+        const { description, medic, pacient } = req.body;
 
         var _id = medic
         const idMedic = await Medic.findOne({ _id })
@@ -87,15 +87,13 @@ ConsultationController.update = async (req, res) => {
             const obj = await Consultation.findByIdAndUpdate(id, {
                 description,
                 medic,
-                pacient,
-                status
+                pacient
             })
             if (obj) {
                 return res.json({ 
                     description,
                     medic: idMedic.name,
-                    pacient: idPacient.name,
-                    status
+                    pacient: idPacient.name
                 }).end()
             }
             else {

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const RecepSchema = mongoose.Schema({
+const MedicalRecord = mongoose.Schema({
     
     date: {
         type: Date,
@@ -12,10 +12,9 @@ const RecepSchema = mongoose.Schema({
     },
     consultation: {
         type: String,
-        ref: 'Consultations',
+        ref: 'Consultation',
         required: true,
     } 
-   
 })
 
-module.exports = mongoose.model('Recep', RecepSchema, 'recep');
+module.exports = mongoose.model('MedicalRecord', MedicalRecord, 'medical_record');

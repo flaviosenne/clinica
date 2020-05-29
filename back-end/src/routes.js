@@ -6,6 +6,7 @@ const PacientController= require('./controllers/PacientController');
 const MedicController= require('./controllers/MedicController');
 const ReceptionistController= require('./controllers/RecepcionistController');
 const RecepController= require('./controllers/RecepController');
+const MedicalRecordController= require('./controllers/MedicalRecordController');
 
 const route = Router();
 
@@ -53,5 +54,12 @@ route.get('/recep/:id', RecepController.getOne);
 route.put('/recep', RecepController.update);
 route.delete('/recep', RecepController.delete);
 
+
+// Medical Record
+route.post('/prontuario', MedicalRecordController.create);
+route.get('/prontuario', MedicalRecordController.read);
+route.get('/prontuario/:id', MedicalRecordController.getOne);
+route.put('/prontuario', MedicalRecordController.update);
+route.delete('/prontuario', MedicalRecordController.delete);
 
 module.exports =  route;
