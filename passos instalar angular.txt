@@ -1,0 +1,40 @@
+1. ter o nodejs instalado
+2. npm install -g @angular/cli 
+	instalar de forma global o /cli do angular
+3. criar o projeto com ( ng new --minimal nome_do_projeto )
+4.  configurar o angular.json para:
+ 	"inlineTemplate": false,
+	"inlineStyle": false
+5. adicionar o pacote material
+	ng add @angular/material
+
+6. criar componente
+	ng g c  e o nome do diretorio(components/template/header)
+
+7. importar a toolbar do pacote material
+	no arquivo app.module.ts 
+	import { MatToolbarModule} from '@angular/material/toolbar';
+
+	dentro de imports: [ referenciar a variavel importada "MatToolbarModule" ]
+
+8. importar o sidenav para ficar uma div do lado esquerdo para a navegação
+	no arquivo app.module.ts
+
+	import {MatSidenavModule} from'@angular/material/sidenav';
+	import {MatListModule} from '@angular/material/list';
+
+	dentro de imports: [ referenciar a variavel importada "MatListModule" e "MatSidenavModule"]
+
+9. criar diretivas no angular
+	ng g d (e o caminho que deseja escolher ex: directives/icone) 
+
+10 criar services no angular
+	ng g s (e o caminho que deseja escolher)
+
+11 importar o client module para conectaar com o backend
+	import { HttpClientModule } from '@angular/common/http';
+
+12 importar formulario já definido
+	import { FormsModule } from '@angular/forms';
+	import { MatFormFieldModule } from '@angular/material/form-field';
+	import { MatInputModule } from '@angular/material/input';

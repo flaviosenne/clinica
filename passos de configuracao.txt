@@ -1,0 +1,25 @@
+passos de configurar o ambiente de desenvolvimento
+---------------------------------------------------
+
+1: instalar node.js
+2: instalar yarn
+3: instalar VScode
+4: extenção - theme material icon, dracula oficial
+5: yarn init -y / npm init -y
+6: yar add express / npm install express
+7: criar o arquivo index.js
+8: no arquivo index.js instanciar o framework express (const express = require('express')
+9: criar a aplicação e instaciar o express (const app = express() )
+10: colocar a porta em que a aplicação vai estar disponivel pelo metodo listen do expresss (app.listen(a porta que deseja)
+11: executar servidor: comando node ou nodemon e qual o arquivo (index.js)
+12: instalar biblioteca nodemon para resetar automáticamente o servidor (yarn add nodemon / npm install nodemon)
+13: iniciar servidor com nodemon--- yarn nodemon index.js
+14: criar script dentro do package.json "scripts":{"a palavra que deseja": "nodemon index.js"
+15: conectar a aplicação ao BD {
+   15.1 MongoDB cloud - criar usuario e senha para projeto na aba 'Database Access' 
+   15.2 configurar quem vai conectar no servidor em 'Network access'
+   15.3	Ir na aba 'Cluster' e conectar ao banco selecionando a opção 'connect your aplication' copiando o codigo abaixo
+   15.4	instalar no viasual studio o mongoose (yarn add mongoose) mongoose é biblioteca que da acesso ao banco de dados mongoDB (SGBD)
+   15.5	instanciar o mongoose dentro da aplicação (const mongoose = require('mongose')
+   15.6	conectar o mongoose -- mongoose.conect(colar o codigo copiado no item 15.3)
+}

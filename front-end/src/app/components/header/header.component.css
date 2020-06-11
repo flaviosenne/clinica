@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
+.header {
+    width: 100%;
+    margin: 0;
+    background-color: red;
+}
+    
+.header .logo{
+    background-color: rgb(114, 236, 199);
+    font-family: 'Piedra', cursive;
+    padding: 15px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.header .menu{
+    display: flex;
+    background-color: rgb(92, 84, 84);
+    color: #fff;
+    justify-content: space-around;
+}
+
+.menu p{
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px;
+    margin: 0px 10px;
+    font-size: 1.2rem;
+}
+
+.menu p:hover{
+    background-color: #fff;
+    color: #000;
+    font-size: 1.23rem;
+}
+
+@media(max-width: 650px){
+    .menu p{
+        display: none;
+    }
+}
