@@ -17,7 +17,7 @@
     display: flex;
     background-color: rgb(92, 84, 84);
     color: #fff;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .menu p{
@@ -34,8 +34,18 @@
     font-size: 1.23rem;
 }
 
+.menu img {
+    display: none;
+}
 @media(max-width: 650px){
+    .menu img {
+        display: block;
+        margin: 5px;
+        text-align: start;
+        width: 50px;
+    }
     .menu p{
         display: none;
     }
+
 }
