@@ -1,0 +1,24 @@
+.nav{
+    margin: 0;
+    position: absolute;
+    background-color: gray;   
+    width: 150px;
+    padding: 10px;
+    min-height: 100vh; 
+}
+
+.nav p {
+    font-size: 1rem;
+    text-align: start;
+}
+
+.nav p img{
+    width: 40px;
+    vertical-align: middle;
+}
+
+.nav p a {
+    color: #fff;
+    margin-left: 10px;
+    text-decoration:  none;
+}

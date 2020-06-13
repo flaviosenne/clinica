@@ -2,7 +2,6 @@
 .header {
     width: 100%;
     margin: 0;
-    background-color: red;
 }
     
 .header .logo{
@@ -29,23 +28,32 @@
 }
 
 .menu p:hover{
-    background-color: #fff;
-    color: #000;
+    background-color: rgba(177, 173, 173, 0.6);
     font-size: 1.23rem;
 }
 
 .menu img {
     display: none;
 }
+.nav {
+    display: none;
+}
+.menu p a{
+    color: #fff;
+    text-decoration: none;
+}
 @media(max-width: 650px){
     .menu img {
         display: block;
         margin: 5px;
-        text-align: start;
+        text-align: end;
         width: 50px;
     }
     .menu p{
         display: none;
+    }
+    .nav {
+        display: block;
     }
 
 }

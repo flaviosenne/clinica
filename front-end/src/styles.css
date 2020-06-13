@@ -5,7 +5,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .conteudo {
     max-width: 100%;
-    margin:0 auto;
-    height: calc(100vh - 160px);
+    margin: auto;
+    height: 100vh;
+    /* height: calc(100vh - 160px); */
+}
+@media(max-width: 650px){
+    .conteudo{
+        margin: 10px 180px;    
+    }
+
 }
 
