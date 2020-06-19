@@ -1,0 +1,43 @@
+.home {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+}
+
+.consulta{
+    border: solid;
+    border-radius: 12px;
+    padding: 5px;
+    width: 200px;
+    display: grid;
+    margin: 10px;
+}
+
+.consulta span{
+    text-align: center;
+}
+
+.data {
+    font-family: monospace;
+    font-size: 16pt;
+    color: rgb(9, 143, 148);
+}
+
+
+@media(max-width: 1024px){
+    .home {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media(max-width: 800px){
+    .home {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 650px){
+    .home{
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,6 +1,8 @@
 .footer {
     background-color: rgb(92, 84, 84);
     padding: 20px;
+    bottom: 0px;
+    position: static;
 }
 
 .footer p{

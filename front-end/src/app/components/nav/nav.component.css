@@ -1,10 +1,10 @@
 .nav{
     margin: 0;
     position: absolute;
-    background-color: gray;   
+    background-color: rgb(246, 242, 242);   
     width: 150px;
     padding: 10px;
-    min-height: 100vh; 
+    min-height: calc(100vh -160px); 
 }
 
 .nav p {
@@ -18,7 +18,8 @@
 }
 
 .nav p a {
-    color: #fff;
+    color: rgb(71, 68, 68);
     margin-left: 10px;
     text-decoration:  none;
 }
+

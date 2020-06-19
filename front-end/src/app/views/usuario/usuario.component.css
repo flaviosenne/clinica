@@ -1,0 +1,48 @@
+.usuario{
+    border: solid black;
+    border-radius: 12px;
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px 5px;
+    display: grid;
+}
+.usuario div {
+    display: flex;
+    margin: 5px;
+
+}
+.usuario img {
+    width: 50px;
+
+}
+.usuario div span{
+    margin: 10px auto;
+    text-align: center;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.usuario input {
+    font-size: 16pt;
+    width: 90%;
+    margin: 2px 0px 5px 0px;
+}
+
+.usuario button {
+    width: 100px;
+    margin: 5px auto;
+    padding: 7px;
+    border: none;
+    border-radius: 4px;
+    background-color: black;
+    color: #fff;
+}
+
+.usuario button:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+@media(max-width: 650px){
+    .usuario{
+        min-width: 100%;
+    }
+}
