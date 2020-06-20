@@ -5,7 +5,7 @@ const id = crypto.randomBytes(4).toString('HEX')
 const MedicSchema = mongoose.Schema({
     auth: {
         type: String,
-        required: true
+        required: false
     },
     _id: {
         type: String,
@@ -28,15 +28,11 @@ const MedicSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    number: {
+    salario: {
         type: Number,
         required: true,
     },
-    city: {
-        type: String,
-        required: true,
-    },
-    uf:{
+    email: {
         type: String,
         required: true,
     },

@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// observable: responssável por requisições HTTP
+import { HttpClientModule, HttpClient} from '@angular/common/http'
+
 // Modulos de Terceiros
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatSidenavModule }  from '@angular/material/sidenav';
-
+import {MatSnackBarModule }  from '@angular/material/snack-bar';
+import { MatInputModule} from '@angular/material/input'
+import { MatFormFieldModule, MatFormField} from '@angular/material/form-field'
+import { FormsModule } from '@angular/forms'
 
 // Componentes gerado para navegação 
 import { AppComponent } from './app.component';
@@ -19,6 +25,7 @@ import { LoginComponent } from './views/login/login.component';
 import { AgendaComponent } from './views/agenda/agenda.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
+import { ConsultaComponent } from './views/consulta/consulta.component';
 
 
 
@@ -33,14 +40,20 @@ import { NavComponent } from './components/nav/nav.component';
     LoginComponent,
     AgendaComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    ConsultaComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

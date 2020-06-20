@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
-  styleUrls: ['./usuario.component.css']
+  selector: 'app-consulta',
+  templateUrl: './consulta.component.html',
+  styleUrls: ['./consulta.component.css']
 })
-export class UsuarioComponent implements OnInit {
+export class ConsultaComponent implements OnInit {
 
   constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
-  alterar(): void{
+  salvar(): void{
     // this.funcionario.showMessage('Operação Bem sucedida')
-    console.log('Aletera')
+    console.log('Certo')
   }
 
   cancel():void{

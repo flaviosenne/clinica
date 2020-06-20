@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agenda',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
 
+  imprimir(): void{
+    // this.funcionario.showMessage('Operação Bem sucedida')
+    console.log('imprimir')
+  }
+
+  cancel():void{
+    this.route.navigate(['/home'])
+  }
 }

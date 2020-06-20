@@ -1,31 +1,61 @@
 <div class="funcionario">
     <span> Cadastro de Funcionario</span>
     
-    <label for="">Nome</label>
-    <input type="text">
+    <label>Nome</label>
+    <input 
+    [(ngModel)]="funcionario.name"
+    matInput
+    name = "name"
+    type="text">
     
-    <label for="">Salario</label>
-    <input type="text">
+    <label>Salario</label>
+    <input 
+    [(ngModel)]="funcionario.salario"  
+    matInput
+    name = "salario"
+    type="text">
     
-    <label for="">Cargo</label>
+    <label>Cargo</label>
     <select name="tipo" id="tipo">
         <option value="">Recepcionista</option>
         <option value="">Medico</option>
     </select>
     
     <label class = "crm"for="">CRM</label>
-    <input class = "crm"type="text">
+    <input class = "crm"
+    [(ngModel)]="funcionario.crm"  
+    matInput
+    name = "crm"
+    type="text">
 
     <label class = "cpf" for="">CPF</label>
-    <input class = "cpf" type="text">
+    <input class = "cpf" 
+    [(ngModel)]="funcionario.cpf"  
+    matInput
+    name = "cpf"
+    type="text">
 
-    <label for="">Email</label>
-    <input type="text">
+    <label>Email</label>
+    <input 
+    [(ngModel)]="funcionario.email" 
+    matInput
+    name = "email"
+    type="text">
 
-    <label for="">Telefone</label>
-    <input type="text">
+    <label>Telefone</label>
+    <input 
+    [(ngModel)]="funcionario.contact"  
+    matInput
+    name = "contact"
+    type="text">
 
-    <label for="">Endereço</label>
-    <input type="text">
+    <label>Endereço</label>
+    <input 
+    [(ngModel)]="funcionario.streat"  
+    matInput
+    name = "streat"
+    type="text">
 
+    <button (click) = "salvar()">Salvar</button>
+    <button (click) = "cancel()">Cancelar</button>
 </div>

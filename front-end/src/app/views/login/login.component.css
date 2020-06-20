@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Piedra&display=swap');
+.login {
+    width: 300px;
+    margin: 50px auto;
+    display: grid;
+    border: solid 1px;
+    padding: 10px;
+}
+
+ .login span{
+     display: block;
+     text-align: center;
+     font-size: 18pt;
+     font-family: 'Piedra', cursive;
+ }
+
+.login input {
+    margin: 5px 0px;
+}
+.login a {
+    text-align: center;
+    margin: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.login a:hover{
+    text-decoration: underline;
+}

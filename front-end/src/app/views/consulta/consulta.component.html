@@ -1,5 +1,5 @@
-<div class="receita">
-    <span> Receita </span>
+<div class="consulta">
+    <span> Consulta </span>
     
     
     <label for="">Paciente</label>
@@ -15,9 +15,12 @@
     </select>
     
     <label class = "descricao"for="">Descrição</label>
-    <textarea name="descricao" id="" cols="20" rows="10"></textarea>
+    <input class = "descricao"type="text">
+
+    <label class = "status" for="">Status</label>
+    <input class = "status" type="text">
 
 
-    <button (click) = "imprimir()"> Imprimir </button>
+    <button (click) = "salvar()"> Salvar</button>
     <button (click) = "cancel()">Cancelar</button>
 </div>
