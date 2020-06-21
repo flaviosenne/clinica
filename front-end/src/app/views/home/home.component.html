@@ -1,54 +1,10 @@
 <div class="home">
     <button routerLink = '/consulta'> Agendar</button>
-    <div class="consulta">
-        <span class="data">Data</span>
-        <label class="nome">Nome</label>
+    <div class="consulta" *ngFor = 'let consulta of consultas'>
+        <span class="data">{{consulta.date}}</span>
+        <label class="nome">{{consulta.pacient}}</label>
         <label for="" class="horario">Horario</label>
-        <label for="" class="status">Status</label>
-        <img routerLink = '/consulta'src="../../../assets/icons/about.png" alt="">
-    </div>
-    
-    <div class="consulta">
-        <span class="data">Data</span>
-        <label class="nome">Nome</label>
-        <label for="" class="horario">Horario</label>
-        <label for="" class="status">Status</label>
-        <img routerLink = '/consulta'src="../../../assets/icons/about.png" alt="">
-    </div>
-    
-    <div class="consulta">
-        <span class="data">Data</span>
-        <label class="nome">Nome</label>
-        <label for="" class="horario">Horario</label>
-        <label for="" class="status">Status</label>
-        <img routerLink = '/consulta'src="../../../assets/icons/about.png" alt="">
-    </div>
-    <div class="consulta">
-        <span class="data">Data</span>
-        <label class="nome">Nome</label>
-        <label for="" class="horario">Horario</label>
-        <label for="" class="status">Status</label>
-        <img routerLink = '/consulta'src="../../../assets/icons/about.png" alt="">
-    </div>
-    <div class="consulta">
-        <span class="data">Data</span>
-        <label class="nome">Nome</label>
-        <label for="" class="horario">Horario</label>
-        <label for="" class="status">Status</label>
-        <img routerLink = '/consulta'src="../../../assets/icons/about.png" alt="">
-    </div>
-    <div class="consulta">
-        <span class="data">Data</span>
-        <label class="nome">Nome</label>
-        <label for="" class="horario">Horario</label>
-        <label for="" class="status">Status</label>
-        <img routerLink = '/consulta'src="../../../assets/icons/about.png" alt="">
-    </div>
-    <div class="consulta">
-        <span class="data">Data</span>
-        <label class="nome">Nome</label>
-        <label for="" class="horario">Horario</label>
-        <label for="" class="status">Status</label>
+        <label for="" class="status">{{consulta.status}}</label>
         <img routerLink = '/consulta'src="../../../assets/icons/about.png" alt="">
     </div>
 </div>

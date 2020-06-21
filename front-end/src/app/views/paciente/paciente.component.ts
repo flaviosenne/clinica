@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PacienteService } from './../../services/paciente.service';
+import { Paciente } from './../../model/paciente.model';
 
 @Component({
   selector: 'app-paciente',
@@ -7,15 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./paciente.component.css']
 })
 export class PacienteComponent implements OnInit {
+  paciente: Paciente = {
+    name: '',
+    cpf: '',
+    contact: '',
+    streat: '',
+    bairro: '',
+    city: ''
 
-  constructor(private route: Router) { }
+  }
+
+  constructor(private route: Router, private pacienteService: PacienteService) { }
 
   ngOnInit(): void {
   }
 
   salvar(): void{
-    // this.funcionario.showMessage('Operação Bem sucedida')
-    console.log('Bem sucedida')
+    this.pacienteService.create(this.paciente).subscribe(() => {
+      this.pacienteService.showMessage(this.paciente.name+' criado com sucesso')
+      this.route.navigate(['/home'])
+    })
 
   }
 

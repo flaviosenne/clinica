@@ -3,7 +3,7 @@ import { MatSnackBar} from '@angular/material/snack-bar'
 
 // responssável por fazer requisições HTTP nas APIs
 import { HttpClient } from '@angular/common/http';
-import { Funcionario } from './funcionario.model';
+import { Funcionario } from '../model/funcionario.model';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,9 @@ export class FuncionarioService {
 
   create(funcionario: Funcionario): Observable<Funcionario> {
     return this.http.post<Funcionario>(this.baseUrl, funcionario)
+  }
+
+  read(): Observable<Funcionario[]>{
+    return this.http.get<Funcionario[]>(this.baseUrl)
   }
 }

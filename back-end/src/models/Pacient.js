@@ -23,19 +23,11 @@ const PacientScheme = mongoose.Schema({
         type: String,
         required: true,
     },
-    number: {
-        type: Number,
-        required: true,
-    },
     bairro: {
         type: String,
         required: true,
     },
     city:{
-        type: String,
-        required: true,
-    },
-    uf: {
         type: String,
         required: true,
     }

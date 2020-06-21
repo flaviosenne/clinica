@@ -1,23 +1,47 @@
 <div class="paciente">
     <span> Cadastro de Paciente</span>
     
-    <label for="">Nome</label>
-    <input type="text">
+    <label>Nome</label>
+    <input 
+    name = 'name'
+    matInput
+    [(ngModel)] = 'paciente.name'
+    type="text">
     
-    <label for="">CPF</label>
-    <input type="text">
+    <label>CPF</label>
+    <input 
+    name = 'cpf'
+    matInput
+    [(ngModel)] = 'paciente.cpf'
+    type="text">
     
-    <label for="">Sexo</label>
-    <input type="text">
+    <label>Telefone</label>
+    <input 
+    name = 'contact'
+    matInput
+    [(ngModel)] = 'paciente.contact'
+    type="text">
     
-    <label for="">Email</label>
-    <input type="text">
+    <label>Endereço</label>
+    <input 
+    name = 'streat'
+    matInput
+    [(ngModel)] = 'paciente.streat'
+    type="text">
 
-    <label for="">Telefone</label>
-    <input type="text">
+    <label>Bairro</label>
+    <input 
+    name = 'bairro'
+    matInput
+    [(ngModel)] = 'paciente.bairro'
+    type="text">
 
-    <label for="">Endereço</label>
-    <input type="text">
+    <label>Cidade</label>
+    <input 
+    name = 'city'
+    matInput
+    [(ngModel)] = 'paciente.city'
+    type="text">
 
     <button (click) = "salvar()">Salvar</button>
     <button (click) = "cancel()">Cancelar</button>

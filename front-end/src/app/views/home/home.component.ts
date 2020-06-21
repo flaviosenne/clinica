@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Consulta } from './../../model/consulta.model';
+import { ConsultaService } from './../../services/consulta.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  consultas: Consulta[]  
+
+  constructor(private consultaService: ConsultaService) { }
 
   ngOnInit(): void {
+    this.consultaService.read().subscribe(consultas => {
+      this.consultas = consultas
+    })
+        
   }
 
 }

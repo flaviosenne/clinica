@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FuncionarioService } from './funcionario.service';
+import { FuncionarioService } from '../../services/funcionario.service';
 import { Router} from '@angular/router'
-import { Funcionario } from './funcionario.model';
+import { Funcionario } from '../../model/funcionario.model';
 
 @Component({
   selector: 'app-funcionarios',
@@ -27,7 +27,7 @@ export class FuncionariosComponent implements OnInit {
   
   salvar(): void{
     this.funcionarioService.create(this.funcionario).subscribe(()=> {
-      this.funcionarioService.showMessage('Operação Bem sucedida')
+      this.funcionarioService.showMessage(this.funcionario.name + ' criado com sucesso')
       this.route.navigate(['/home'])
 
     })
