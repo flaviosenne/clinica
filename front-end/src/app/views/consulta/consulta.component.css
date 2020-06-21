@@ -13,7 +13,7 @@
 }
 .consulta select {
     font-size: 18pt;
-    max-width: 91%;
+    width: 91%;
     margin: 2px 0px 10px 0px;
 }
 .consulta input {

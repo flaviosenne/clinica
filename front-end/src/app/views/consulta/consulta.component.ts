@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 // services
-import { PacienteService } from './../../services/paciente.service';
+import { ConsultaService} from './../../services/consulta.service'
 import { FuncionarioService } from './../../services/funcionario.service';
+import { PacienteService } from './../../services/paciente.service';
 
 // models
+import {Consulta} from './../../model/consulta.model'
 import { Funcionario } from './../../model/funcionario.model';
 import { Paciente } from './../../model/paciente.model';
 
@@ -16,29 +18,30 @@ import { Paciente } from './../../model/paciente.model';
 })
 export class ConsultaComponent implements OnInit {
 
-  pacientes: Paciente[]
+  consultas: Consulta[]
   medicos: Funcionario[]
+  pacientes: Paciente[]
   
   
   constructor(private route: Router, 
-  private pacienteService: PacienteService,
-  private medicoService: FuncionarioService) { }
+  private consultaService: ConsultaService,
+  private medicService: FuncionarioService,
+  private pacienteService: PacienteService) { }
 
   ngOnInit(): void {
-    
-  }
-  carregar(): void {
     console.log('teste...')
-    this.pacienteService.read().subscribe(pacientes => {
-      this.pacientes = pacientes
-      console.log('pacientes '+ this.pacientes)
+    this.medicService.read().subscribe(medico => {
+      this.medicos = medico
+      console.log(this.medicos)
+    })
+    this.pacienteService.read().subscribe(paciente => {
+      this.pacientes = paciente
+      console.log(this.pacientes)
     })
 
-    this.medicoService.read().subscribe(medicos => {
-      this.medicos = medicos
-      console.log('medicos ' + this.medicos)
-    })
+    
   }
+
   salvar(): void{
     // this.funcionario.showMessage('Operação Bem sucedida')
     console.log('Certo')
