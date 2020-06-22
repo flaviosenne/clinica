@@ -17,7 +17,7 @@
     border: solid;
     border-radius: 12px;
     padding: 5px;
-    width: 200px;
+    width: 160px;
     display: grid;
     margin: 10px;
 }
@@ -29,7 +29,7 @@
 .consulta  img {
     width: 30px;
     position: absolute;
-    margin-left: 160px;
+    margin-left: 120px;
     margin-top: 50px;
 }
 .consulta  img:hover{

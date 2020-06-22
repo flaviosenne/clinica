@@ -15,12 +15,11 @@
     name = "salario"
     type="text">
     
-    <label>Cargo</label>
-    <select name="tipo" id="tipo">
-        <option value="">Recepcionista</option>
-        <option value="">Medico</option>
+    <select name="tipo" id="tipo" [(ngModel)] = 'tipo'>
+        <option value="recepcionista">Recepcionista</option>
+        <option value="medico">Medico</option>
     </select>
-    
+
     <label class = "crm"for="">CRM</label>
     <input class = "crm"
     [(ngModel)]="funcionario.crm"  

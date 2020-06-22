@@ -10,6 +10,12 @@ import { HttpClient } from '@angular/common/http';
 export class ConsultaService {
   baseUrl = 'http://localhost:3333/consultations'
 
+  consulta: Consulta = {
+    medic: '',
+    pacient: '',
+    description: ''
+  }
+
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
   showMessage(msg: string): void{
@@ -21,5 +27,9 @@ export class ConsultaService {
   }
   read(): Observable<Consulta[]> {
     return this.http.get<Consulta[]>(this.baseUrl)
+  }
+
+  create(consulta: Consulta): Observable<Consulta>{
+    return this.http.post<Consulta>(this.baseUrl, consulta)
   }
 }

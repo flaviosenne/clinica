@@ -35,11 +35,7 @@ const MedicSchema = mongoose.Schema({
     email: {
         type: String,
         required: true,
-    },
-    cpf:{
-        type: String,
-        required: true,
-    },
+    }
 });
 MedicSchema.pre('save', async function(next) {
     const id = crypto.randomBytes(4).toString('HEX')

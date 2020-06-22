@@ -24,22 +24,20 @@ const ReceptionistSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    number: {
-        type: Number,
-        required: true,
-    },
-    city: {
-        type: String,
-        required: true,
-    },
-    uf:{
+    
+    email: {
         type: String,
         required: true,
     },
     cpf:{
         type: String,
         required: true,
-    }
+    },
+    salario:{
+        type: Number,
+        required: true,
+    },
+    
 });
 ReceptionistSchema.pre('save', async function(next) {
     const id = crypto.randomBytes(2).toString('HEX')

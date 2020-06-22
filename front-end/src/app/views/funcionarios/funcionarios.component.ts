@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FuncionarioService } from '../../services/funcionario.service';
 import { Router} from '@angular/router'
-import { Funcionario } from '../../model/funcionario.model';
+
+
+import { MedicoService } from '../../services/medico.service';
+import { Medico } from 'src/app/model/medico.model';
+import { Recepcionista } from './../../model/recepcionista.model';
+import { RecepcionistaService } from './../../services/recepcionista.service';
 
 @Component({
   selector: 'app-funcionarios',
@@ -10,7 +14,7 @@ import { Funcionario } from '../../model/funcionario.model';
 })
 export class FuncionariosComponent implements OnInit {
 
-  funcionario: Funcionario = {
+  funcionario: any = {
     auth: '7f74606231e9',
     crm: null,
     salario: null,
@@ -20,17 +24,29 @@ export class FuncionariosComponent implements OnInit {
     streat: '',
     cpf: ''
   }
-  constructor(private funcionarioService: FuncionarioService, private route: Router) { }
 
+  
+  constructor(private medicoService: MedicoService, private recepcionistaService: RecepcionistaService,
+     private route: Router) { }
+
+  tipo: String = ''
   ngOnInit(): void {
   }
   
   salvar(): void{
-    this.funcionarioService.create(this.funcionario).subscribe(()=> {
-      this.funcionarioService.showMessage(this.funcionario.name + ' criado com sucesso')
-      this.route.navigate(['/home'])
+    if(this.tipo == 'medico'){
+      this.medicoService.create(this.funcionario).subscribe(()=> {
+        this.medicoService.showMessage(this.funcionario.name + ' cadastrado com sucesso')
+        this.route.navigate(['/home'])
+      })
+    }
+    if(this.tipo == 'recepcionista'){
+      this.recepcionistaService.create(this.funcionario).subscribe(() =>{
+        this.recepcionistaService.showMessage(this.funcionario.name + ' cadastrado co sucesse')
+        this.route.navigate(['/home'])
+      })
+    }
 
-    })
 
   }
 

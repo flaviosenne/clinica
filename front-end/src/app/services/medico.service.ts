@@ -3,12 +3,12 @@ import { MatSnackBar} from '@angular/material/snack-bar'
 
 // responssável por fazer requisições HTTP nas APIs
 import { HttpClient } from '@angular/common/http';
-import { Funcionario } from '../model/funcionario.model';
+import { Medico } from '../model/medico.model';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FuncionarioService {
+export class MedicoService {
 
   baseUrl = 'http://localhost:3333/medic'
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
@@ -22,11 +22,11 @@ export class FuncionarioService {
   }
 
 
-  create(funcionario: Funcionario): Observable<Funcionario> {
-    return this.http.post<Funcionario>(this.baseUrl, funcionario)
+  create(medico: Medico): Observable<Medico> {
+    return this.http.post<Medico>(this.baseUrl, medico)
   }
 
-  read(): Observable<Funcionario[]>{
-    return this.http.get<Funcionario[]>(this.baseUrl)
+  read(): Observable<Medico[]>{
+    return this.http.get<Medico[]>(this.baseUrl)
   }
 }

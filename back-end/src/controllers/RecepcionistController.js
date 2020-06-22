@@ -5,7 +5,7 @@ const RecepcionistController = {
     async create(req, res) {
         try {
             const id = crypto.randomBytes(2).toString('HEX')
-            const { name, contact, streat, number, city, uf, cpf } = req.body
+            const { name, contact, streat, salario, email, cpf } = req.body
 
             const { auth } = req.body;
             var _id = auth;
@@ -18,9 +18,8 @@ const RecepcionistController = {
                     name,
                     contact,
                     streat,
-                    number,
-                    city,
-                    uf,
+                    salario,
+                    email,
                     cpf
                 });
                 return res.json({ Status: 'Create Sucessful' }).end()

@@ -1,9 +1,9 @@
 <div class="home">
     <button routerLink = '/consulta'> Agendar</button>
     <div class="consulta" *ngFor = 'let consulta of consultas'>
-        <span class="data">{{consulta.date}}</span>
-        <label class="nome">{{consulta.pacient}}</label>
-        <label for="" class="horario">Horario</label>
+        <span class="data">{{consulta.date | date:'dd/MM/yyyy'}}</span>
+        <label class="nome">{{consulta.pacient.name}}</label>
+        <label for="" class="horario">{{consulta.date }}</label>
         <label for="" class="status">{{consulta.status}}</label>
         <img routerLink = '/consulta'src="../../../assets/icons/about.png" alt="">
     </div>

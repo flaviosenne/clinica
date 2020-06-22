@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 
 // services
 import { ConsultaService} from './../../services/consulta.service'
-import { FuncionarioService } from './../../services/funcionario.service';
+import { MedicoService } from '../../services/medico.service';
 import { PacienteService } from './../../services/paciente.service';
 
 // models
 import {Consulta} from './../../model/consulta.model'
-import { Funcionario } from './../../model/funcionario.model';
+import { Medico } from '../../model/medico.model';
 import { Paciente } from './../../model/paciente.model';
 
 @Component({
@@ -19,31 +19,38 @@ import { Paciente } from './../../model/paciente.model';
 export class ConsultaComponent implements OnInit {
 
   consultas: Consulta[]
-  medicos: Funcionario[]
+  medicos: Medico[]
   pacientes: Paciente[]
+
+  consultation: Consulta ={
+    medic: '',
+    pacient: '',
+    description: ''
+  }
+
   
   
   constructor(private route: Router, 
   private consultaService: ConsultaService,
-  private medicService: FuncionarioService,
+  private medicService: MedicoService,
   private pacienteService: PacienteService) { }
 
   ngOnInit(): void {
-    console.log('teste...')
     this.medicService.read().subscribe(medico => {
       this.medicos = medico
-      console.log(this.medicos)
     })
     this.pacienteService.read().subscribe(paciente => {
       this.pacientes = paciente
-      console.log(this.pacientes)
     })
 
     
   }
 
   salvar(): void{
-    // this.funcionario.showMessage('Operação Bem sucedida')
+    this.consultaService.create(this.consultation).subscribe(() => {
+        this.consultaService.showMessage('consulta criada agenda com sucesso')
+        this.route.navigate(['/home'])
+    })
     console.log('Certo')
   }
 
