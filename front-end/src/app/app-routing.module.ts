@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AgendaComponent } from '../app/views/agenda/agenda.component'
+import { AgendaComponent } from '../app/views/receita/agenda.component'
 import { LoginComponent} from '../app/views/login/login.component'
 import { FuncionariosComponent } from './views/funcionarios/funcionarios.component';
 import {PacienteComponent} from '../app/views/paciente/paciente.component'

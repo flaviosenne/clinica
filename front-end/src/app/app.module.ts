@@ -22,7 +22,7 @@ import { FuncionariosComponent } from './views/funcionarios/funcionarios.compone
 import { PacienteComponent } from './views/paciente/paciente.component';
 import { UsuarioComponent } from './views/usuario/usuario.component';
 import { LoginComponent } from './views/login/login.component';
-import { AgendaComponent } from './views/agenda/agenda.component';
+import { AgendaComponent } from './views/receita/agenda.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ConsultaComponent } from './views/consulta/consulta.component';
