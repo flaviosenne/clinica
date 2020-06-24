@@ -26,6 +26,7 @@ import { AgendaComponent } from './views/receita/agenda.component';
 import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ConsultaComponent } from './views/consulta/consulta.component';
+import { ConsultaUpdateComponent } from './views/consulta-update/consulta-update.component';
 
 
 
@@ -41,7 +42,8 @@ import { ConsultaComponent } from './views/consulta/consulta.component';
     AgendaComponent,
     HomeComponent,
     NavComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    ConsultaUpdateComponent
   ],
   imports: [
   BrowserModule,

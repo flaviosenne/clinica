@@ -29,4 +29,9 @@ export class PacienteService {
   read(): Observable<Paciente[]>{
     return this.http.get<Paciente[]>(this.baseUrl)
   }
+
+  readById(_id: String): Observable<Paciente>{
+    const url = this.baseUrl+ '/'+_id
+    return this.http.get<Paciente>(url)
+  }
 }

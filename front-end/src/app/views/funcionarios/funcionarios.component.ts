@@ -22,7 +22,8 @@ export class FuncionariosComponent implements OnInit {
     contact: '',
     email: '',
     streat: '',
-    cpf: ''
+    cpf: '',
+    senha: ''
   }
 
   

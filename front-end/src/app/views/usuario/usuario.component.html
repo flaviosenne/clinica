@@ -5,19 +5,19 @@
     </div>
     
     <label for="">Nome</label>
-    <input type="text">
-    
-    <label for="">Sexo</label>
-    <input type="text">
+    <input type="text" [(ngModel)] = 'usuario.nome'>
     
     <label for="">Email</label>
-    <input type="text">
-
+    <input type="email" [(ngModel)] = 'usuario.email'>
+    
     <label for="">Telefone</label>
-    <input type="text">
-
+    <input type="text" [(ngModel)] = 'usuario.telefone'>
+    
     <label for="">Endereço</label>
-    <input type="text">
+    <input type="text" [(ngModel)] = 'usuario.endereco'>
+    
+    <label for="">Senha</label>
+    <input type="password" [(ngModel)] = 'usuario.senha'>
 
     <button (click) = "alterar()">Salvar</button>
     <button (click) = "cancel()">Cancelar</button>

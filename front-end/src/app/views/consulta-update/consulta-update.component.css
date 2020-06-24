@@ -1,4 +1,4 @@
-.receita{
+.consulta{
     border: solid black;
     border-radius: 12px;
     width: 50%;
@@ -6,29 +6,24 @@
     padding: 10px 5px;
     display: grid;
 }
-.receita span{
+.consulta span{
     text-align: center;
     font-size: 20pt;
     font-weight: bold;
 }
-.receita select {
+.consulta select {
     font-size: 18pt;
     width: 91%;
     margin: 2px 0px 10px 0px;
 }
-.receita input {
+.consulta input {
     font-size: 16pt;
     width: 90%;
     margin: 2px 0px 5px 0px;
 }
-.receita textarea{
-    width: 90%;
-}
+
 @media(max-width: 650px){
-    .receita{
-        width: 100%;
-    }
-    .receita textarea{
-        width: 90%;
+    .consulta{
+        min-width: 100%;
     }
 }

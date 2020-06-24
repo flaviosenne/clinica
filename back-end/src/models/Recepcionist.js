@@ -37,6 +37,10 @@ const ReceptionistSchema = mongoose.Schema({
         type: Number,
         required: true,
     },
+    senha:{
+        type: String,
+        required: true,
+    }
     
 });
 ReceptionistSchema.pre('save', async function(next) {

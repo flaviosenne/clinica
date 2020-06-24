@@ -3,11 +3,11 @@
         <span> Sua Saúde</span>
     </div>
     
-    <label for="">Usuario</label>
-    <input [value] = "prop" type="text">
+    <label for="">email</label>
+    <input [(ngModel)] = "email" type="text">
     
     <label for="">Senha</label>
-    <input type="text">
+    <input [(ngModel)] = "pass"type="text">
     
     <a href = "#"> Esqueci minha senha</a>
     <button (click) = "logar()">Entrar</button>

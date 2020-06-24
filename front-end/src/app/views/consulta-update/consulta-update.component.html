@@ -1,0 +1,32 @@
+<div class="consulta" >
+    <span> Consulta Update</span>
+    
+    <!-- <label > Paciente </label>
+    <select name="pacient" id="paciente" [(ngModel)] = 'consulta.pacient'>
+        <option value= '{{consulta.pacient}}'>
+        </option>
+    </select>
+    
+    <label > Medico </label>
+    <select name="medic" id="medico" [(ngModel)] = 'consulta.medic' >
+        <option  value = '{{consulta.medic}}'>
+        </option>
+    </select> -->
+    
+    <label class = "descricao"for="">Paciente</label>
+    <input [(ngModel)] = 'consulta.pacient'
+            class = "descricao"type="text" >
+
+    <label class = "descricao"for="">Medico</label>
+    <input [(ngModel)] = 'consulta.medic'
+            class = "descricao"type="text" >
+
+    <label class = "descricao"for="">Descrição</label>
+    <input [(ngModel)] = 'consulta.description'
+            class = "descricao"type="text" >
+
+
+
+    <button (click) = "update()"> Salvar</button>
+    <button (click) = "cancel()">Cancelar</button>
+</div>

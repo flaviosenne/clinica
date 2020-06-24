@@ -29,4 +29,11 @@ export class MedicoService {
   read(): Observable<Medico[]>{
     return this.http.get<Medico[]>(this.baseUrl)
   }
+
+  readById(_id: String): Observable<Medico>{
+    const url = this.baseUrl+'/'+_id
+    console.log('get ', url)
+    return this.http.get<Medico>(url)
+  }
+
 }

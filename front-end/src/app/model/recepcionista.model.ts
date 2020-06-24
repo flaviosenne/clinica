@@ -1,10 +1,11 @@
 export interface Recepcionista {
     auth: String
-    id?: String
+    _id?: String
     name: String
     email: String
     contact: String
     streat: String
     salario: number
-    cpf?: String
+    cpf?: String,
+    senha: String
 }

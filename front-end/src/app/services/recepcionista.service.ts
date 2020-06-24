@@ -28,5 +28,15 @@ export class RecepcionistaService {
     return this.http.post<Recepcionista>(this.baseUrl, recepcionista)
   }
 
+  read(): Observable<Recepcionista[]>{
+    return this.http.get<Recepcionista[]>(this.baseUrl)
+  }
+
+  readById(_id: String): Observable<Recepcionista>{
+    const url = this.baseUrl+'/'+_id
+    console.log('get ', url)
+    return this.http.get<Recepcionista>(url)
+  }
+
 
 }

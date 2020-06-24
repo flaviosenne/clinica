@@ -5,7 +5,7 @@ const RecepcionistController = {
     async create(req, res) {
         try {
             const id = crypto.randomBytes(2).toString('HEX')
-            const { name, contact, streat, salario, email, cpf } = req.body
+            const { name, contact, streat, salario, email, cpf, senha } = req.body
 
             const { auth } = req.body;
             var _id = auth;
@@ -14,13 +14,14 @@ const RecepcionistController = {
             if (acesso) {
                 await Recepcionist.create({
                     auth,
-                    id,
+                    _id: id,
                     name,
                     contact,
                     streat,
                     salario,
                     email,
-                    cpf
+                    cpf,
+                    senha
                 });
                 return res.json({ Status: 'Create Sucessful' }).end()
             } else {
@@ -34,16 +35,15 @@ const RecepcionistController = {
     },
 
     async read(req, res) {
-        if (Object.keys(req.query).length > 0) {
-            this.read(req, res).end()
-        } else {
+        // if (Object.keys(req.query).length > 0) {
+        //     this.read(req, res).end()
+        // } else {
             try {
                 const read = await Recepcionist.find()
                 return res.json(read).end()
             } catch (err) {
                 return res.json(err).end()
             }
-        }
     },
 
     async getOne(req, res) {
