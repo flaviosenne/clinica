@@ -12,6 +12,9 @@ export class UserService {
   private userDate: User = {
     _id: ''
   }
+
+  private prop: String = 'none'
+
   constructor() { }
 
   getUser(): User{
@@ -20,5 +23,13 @@ export class UserService {
 
   setUser(user: String){
     this.userDate._id = user
+  }
+
+  getProp(): String {
+    return this.prop
+  }
+
+  setProp(prop: String): void {
+    this.prop = prop
   }
 }

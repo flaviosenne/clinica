@@ -5,7 +5,6 @@ import { MedicoService } from './../../services/medico.service';
 import { Recepcionista } from 'src/app/model/recepcionista.model';
 import { Medico } from './../../model/medico.model';
 import { UserService } from './../../services/user.service';
-import { identifierModuleUrl } from '@angular/compiler';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,7 +15,8 @@ export class LoginComponent implements OnInit {
   email: String = ""
   pass: String = ""
 
-  prop: String = 'none'
+  checado: Number = null
+
   medico: Medico[]
   recepcionista: Recepcionista[]
 
@@ -33,9 +33,10 @@ export class LoginComponent implements OnInit {
     this.recepcionistaService.read().subscribe(recepcionista => {
       this.recepcionista = recepcionista
     })
+
   }
 
-  logar(): void {
+  logar(): any {
 
       this.medico.forEach(medico => {
 
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
           this.userService.setUser(usuario)
           
           this.route.navigate(['/home'])
+          this.checado = 1
           this.medicoService.showMessage('Bem vindo ' + medico.name)
         }
         
@@ -56,16 +58,21 @@ export class LoginComponent implements OnInit {
         if (this.email == recepcionista.email && this.pass == recepcionista.senha) {
           console.log('achei')
           const usuario = recepcionista._id
-
+          
           this.userService.setUser(usuario)
           
           this.route.navigate(['/home'])
-          this.medicoService.showMessage('Bem vinda ' + recepcionista.name)
+          this.checado = 1
+          return this.medicoService.showMessage('Bem vinda ' + recepcionista.name)
         }
       })
-
-
+    
+    if(this.checado == null){
       this.medicoService.showMessage('Email ou senha incorreta ')
+
+    }
+
+    
 
 
   }
