@@ -30,8 +30,8 @@ export class MedicoService {
     return this.http.get<Medico[]>(this.baseUrl)
   }
 
-  readById(_id: String): Observable<Medico>{
-    const url = this.baseUrl+'/'+_id
+  readById(id: String): Observable<Medico>{
+    const url = this.baseUrl+'/'+id
     console.log('get ', url)
     return this.http.get<Medico>(url)
   }

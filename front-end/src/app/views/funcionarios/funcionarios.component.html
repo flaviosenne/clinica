@@ -1,67 +1,39 @@
-<div class="funcionario">
-    <span> Cadastro de Funcionario</span>
-    
-    <label>Nome</label>
-    <input 
-    [(ngModel)]="funcionario.name"
-    matInput
-    name = "name"
-    type="text">
-    
-    <label>Salario</label>
-    <input 
-    [(ngModel)]="funcionario.salario"  
-    matInput
-    name = "salario"
-    type="text">
-    
-    <select name="tipo" id="tipo" [(ngModel)] = 'tipo'>
-        <option value="recepcionista">Recepcionista</option>
-        <option value="medico">Medico</option>
-    </select>
+<app-header></app-header>
+<div class="conteudo">
+    <div class="funcionario">
+        <span> Cadastro de Funcionario</span>
 
-    <label class = "crm"for="">CRM</label>
-    <input class = "crm"
-    [(ngModel)]="funcionario.crm"  
-    matInput
-    name = "crm"
-    type="text">
+        <label>Nome</label>
+        <input [(ngModel)]="funcionario.name" matInput name="name" type="text">
 
-    <label class = "cpf" for="">CPF</label>
-    <input class = "cpf" 
-    [(ngModel)]="funcionario.cpf"  
-    matInput
-    name = "cpf"
-    type="text">
+        <label>Salario</label>
+        <input [(ngModel)]="funcionario.salario" matInput name="salario" type="text">
+
+        <select name="tipo" id="tipo" [(ngModel)]='tipo'>
+            <option value="recepcionista">Recepcionista</option>
+            <option value="medico">Medico</option>
+        </select>
+
+        <label class="crm" for="">CRM</label>
+        <input class="crm" [(ngModel)]="funcionario.crm" matInput name="crm" type="text">
+
+        <label class="cpf" for="">CPF</label>
+        <input class="cpf" [(ngModel)]="funcionario.cpf" matInput name="cpf" type="text">
 
 
-    <label>Telefone</label>
-    <input 
-    [(ngModel)]="funcionario.contact"  
-    matInput
-    name = "contact"
-    type="text">
+        <label>Telefone</label>
+        <input [(ngModel)]="funcionario.contact" matInput name="contact" type="text">
 
-    <label>Endereço</label>
-    <input 
-    [(ngModel)]="funcionario.streat"  
-    matInput
-    name = "streat"
-    type="text">
+        <label>Endereço</label>
+        <input [(ngModel)]="funcionario.streat" matInput name="streat" type="text">
 
-    <label>Email</label>
-    <input 
-    [(ngModel)]="funcionario.email" 
-    matInput
-    name = "email"
-    type="text">
+        <label>Email</label>
+        <input [(ngModel)]="funcionario.email" matInput name="email" type="text">
 
-    <label>Senha</label>
-    <input 
-    [(ngModel)]="funcionario.senha" 
-    matInput
-    name = "senha"
-    type="text">
-    <button (click) = "salvar()">Salvar</button>
-    <button (click) = "cancel()">Cancelar</button>
+        <label>Senha</label>
+        <input [(ngModel)]="funcionario.senha" matInput name="senha" type="text">
+        <button (click)="salvar()">Salvar</button>
+        <button (click)="cancel()">Cancelar</button>
+    </div>
 </div>
+<app-footer></app-footer>

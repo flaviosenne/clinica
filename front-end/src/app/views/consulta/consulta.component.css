@@ -1,3 +1,27 @@
+.conteudo {
+    max-width: 100%;
+    margin: auto;
+    min-height: calc(100vh - 160px);
+}
+
+button {
+    width: 100px;
+    margin: 5px auto;
+    padding: 7px;
+    border: none;
+    border-radius: 4px;
+    background-color: black;
+    color: #fff;
+}
+button:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+@media(max-width: 650px){
+    .conteudo{
+        margin: 10px 40px 10px 150px;    
+    }
+
+}
 .consulta{
     border: solid black;
     border-radius: 12px;

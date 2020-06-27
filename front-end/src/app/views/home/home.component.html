@@ -1,11 +1,15 @@
+<app-header></app-header>
+<div class="conteudo">
 
-<div class="home">
-    <button routerLink = '/consulta'> Agendar</button>
-    <div class="consulta" *ngFor = 'let consulta of consultas'>
-        <span class="data">{{consulta.date | date:'dd/MM/yyyy'}}</span>
-        <label class="nome">{{consulta.pacient.name}}</label>
-        <label for="" class="horario">horario</label>
-        <label for="" class="status">{{consulta.status}}</label>
-        <img routerLink = '/consulta/{{consulta._id}}'src="../../../assets/icons/about.png" alt="">
+    <div class="home">
+        <button routerLink='/consulta'> Agendar</button>
+        <div class="consulta" *ngFor='let consulta of consultas'>
+            <span class="data">{{consulta.date | date:'dd/MM/yyyy'}}</span>
+            <label class="nome">{{consulta.pacient.name}}</label>
+            <label for="" class="horario">horario</label>
+            <label for="" class="status">{{consulta.status}}</label>
+            <img routerLink='/consulta/{{consulta._id}}' src="../../../assets/icons/about.png" alt="">
+        </div>
     </div>
 </div>
+<app-footer></app-footer>

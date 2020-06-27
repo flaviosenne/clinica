@@ -1,11 +1,14 @@
-<div class="consulta" >
-    <span> Consulta </span>
-    
-    <label > Paciente </label>
-    <select name="pacient" id="paciente" [(ngModel)] = 'consultation.pacient'>
-        <option *ngFor = 'let paciente of pacientes' value= '{{paciente._id}}'>
-            {{paciente.name}}
-        </option>
+<app-header></app-header>
+<div class="conteudo">
+
+    <div class="consulta" >
+        <span> Consulta </span>
+        
+        <label > Paciente </label>
+        <select name="pacient" id="paciente" [(ngModel)] = 'consultation.pacient'>
+            <option *ngFor = 'let paciente of pacientes' value= '{{paciente._id}}'>
+                {{paciente.name}}
+            </option>
     </select>
     
     <label > Medico </label>
@@ -17,10 +20,12 @@
     
     <label class = "descricao"for="">Descrição</label>
     <input [(ngModel)] = 'consultation.description'
-            class = "descricao"type="text" >
-
-
-
+    class = "descricao"type="text" >
+    
+    
+    
     <button (click) = "salvar()"> Salvar</button>
     <button (click) = "cancel()">Cancelar</button>
 </div>
+</div>
+<app-footer></app-footer>
