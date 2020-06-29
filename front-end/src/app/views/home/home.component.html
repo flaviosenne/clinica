@@ -4,11 +4,12 @@
     <div class="home">
         <button routerLink='/consulta'> Agendar</button>
         <div class="consulta" *ngFor='let consulta of consultas'>
+            <img (click) = 'delete(consulta._id)'class = 'delete' src="../../../assets/icons/remover.png" alt="icone deletar">
             <span class="data">{{consulta.date | date:'dd/MM/yyyy'}}</span>
             <label class="nome">{{consulta.pacient.name}}</label>
             <label for="" class="horario">horario</label>
             <label for="" class="status">{{consulta.status}}</label>
-            <img routerLink='/consulta/{{consulta._id}}' src="../../../assets/icons/about.png" alt="">
+            <img class = 'info'routerLink='/consulta/{{consulta._id}}' src="../../../assets/icons/about.png" alt="icone informaação">
         </div>
     </div>
 </div>

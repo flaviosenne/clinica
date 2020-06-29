@@ -6,6 +6,6 @@ export interface Medico {
     name: String
     contact: String
     email: String
-    streat: String,
+    streat: String
     senha: String
 }

@@ -32,6 +32,15 @@
     margin-left: 120px;
     margin-top: 50px;
 }
+.consulta .delete {
+    width: 17px;
+    margin-left: 145px;
+    margin-top: 3px;
+    
+}
+.consulta .delete:hover{
+    width: 18px;
+}
 .consulta  img:hover{
     width: 29px;
 }

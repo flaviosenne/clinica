@@ -19,5 +19,11 @@ export class HomeComponent implements OnInit {
     })
         
   }
+  delete(id): void {
+    this.consultaService.delete(id).subscribe(()=> {
+      this.consultaService.showMessage('Excluido com sucesso')
+      this.ngOnInit()
+    })
+  }
 
 }

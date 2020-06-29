@@ -9,7 +9,7 @@ export class UserService {
   // private _userData = new BehaviorSubject<User>({
   //   _id: ''
   // })
-  private userDate: User = {
+  private userData: User = {
     _id: ''
   }
 
@@ -18,11 +18,11 @@ export class UserService {
   constructor() { }
 
   getUser(): User{
-    return this.userDate
+    return this.userData
   }
 
   setUser(user: String){
-    this.userDate._id = user
+    this.userData._id = user
   }
 
   getProp(): String {
