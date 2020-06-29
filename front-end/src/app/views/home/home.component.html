@@ -7,7 +7,7 @@
             <img (click) = 'delete(consulta._id)'class = 'delete' src="../../../assets/icons/remover.png" alt="icone deletar">
             <span class="data">{{consulta.date | date:'dd/MM/yyyy'}}</span>
             <label class="nome">{{consulta.pacient.name}}</label>
-            <label for="" class="horario">horario</label>
+            <label for="" class="horario">{{consulta.date | date:'hh:mm'}}</label>
             <label for="" class="status">{{consulta.status}}</label>
             <img class = 'info'routerLink='/consulta/{{consulta._id}}' src="../../../assets/icons/about.png" alt="icone informaação">
         </div>

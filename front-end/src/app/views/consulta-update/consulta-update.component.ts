@@ -30,15 +30,15 @@ export class ConsultaUpdateComponent implements OnInit {
     this.consultaService.readById(id).subscribe(consulta => {
       console.log(consulta)
       
-      // this.medicoService.readById(consulta.medic).subscribe(medico => {
-      //   console.log(medico)
-      //   this.medico = medico.name
-      // })
+      this.medicoService.readById(consulta.medic).subscribe(medico => {
+        console.log(medico)
+        this.consulta.medic = medico.name
+      })
       
-      // this.pacienteService.readById(consulta.pacient).subscribe(paciente => {
-      //   console.log(paciente)
-      //   this.paciente = paciente.name
-      // })
+      this.pacienteService.readById(consulta.pacient).subscribe(paciente => {
+        console.log(paciente)
+        this.consulta.pacient = paciente.name
+      })
       
       
       this.consulta = consulta
