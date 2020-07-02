@@ -15,7 +15,9 @@ export class ConsultaUpdateComponent implements OnInit {
   consulta: any = {
     medic: '',
     pacient:  '',
-    description: ''
+    description: '',
+    status: '',
+    date: ''
   }
 
   medico: any[]
@@ -47,6 +49,7 @@ export class ConsultaUpdateComponent implements OnInit {
 
   }
   update(): void{
+    this.consultaService.update(this.consulta)
 
   }
   cancel(): void{

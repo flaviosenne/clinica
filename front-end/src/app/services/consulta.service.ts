@@ -38,9 +38,14 @@ export class ConsultaService {
     return this.http.post<Consulta>(this.baseUrl, consulta)
   }
 
-  update(consulta: Consulta): Observable<Consulta> {
+  update(consulta: Consulta) {
     const url = this.baseUrl + '/' + consulta.id
-    return this.http.put<Consulta>(url, consulta)
+    return this.http.request('PUT', url,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body:  {_id: consulta.id, consulta }
+    })
   }
 
   delete(id: String) {

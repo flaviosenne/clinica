@@ -3,4 +3,6 @@ export interface Consulta {
     description: String
     pacient?: String
     medic?: String
+    date?:String
+    status?:String
 }

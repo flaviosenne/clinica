@@ -2,25 +2,29 @@
 <div class="conteudo">
 
     <div class="consulta" >
-        <span> Consulta Update</span>
+        <span> Consulta </span>
     
+        <label class = "descricao"for="">Data</label>
+        <input disabled [(ngModel)] = 'consulta.date' 
+        class = "descricao"type="text" >
         
     <label class = "descricao"for="">Paciente</label>
-    <input [(ngModel)] = 'consulta.pacient'
+    <input disabled [(ngModel)] = 'consulta.pacient'
     class = "descricao"type="text" >
 
     <label class = "descricao"for="">Medico</label>
-    <input [(ngModel)] = 'consulta.medic'
+    <input disabled [(ngModel)] = 'consulta.medic'
+    class = "descricao"type="text" >
+
+    <label class = "descricao"for="">Status</label>
+    <input disabled [(ngModel)] = 'consulta.status'
     class = "descricao"type="text" >
     
     <label class = "descricao"for="">Descrição</label>
-    <input [(ngModel)] = 'consulta.description'
+    <input disabled [(ngModel)] = 'consulta.description'
     class = "descricao"type="text" >
 
-    
-    
-    <button (click) = "update()"> Salvar</button>
-    <button (click) = "cancel()">Cancelar</button>
+    <button (click) = "cancel()">Voltar</button>
 </div>
 </div>
 <app-footer></app-footer>
