@@ -1,0 +1,60 @@
+<app-header></app-header>
+<div class="conteudo">
+
+    <div class="paciente">
+        <span> Cadastro de Paciente</span>
+    
+    <label>Nome</label>
+    <input 
+    name = 'name'
+    matInput
+    [(ngModel)] = 'paciente.name'
+    value = 'paciente.name'
+    type="text">
+    
+    <label>CPF</label>
+    <input 
+    name = 'cpf'
+    matInput
+    [(ngModel)] = 'paciente.cpf'
+    value = 'paciente.cpf'
+    type="text">
+    
+    <label>Telefone</label>
+    <input 
+    name = 'contact'
+    matInput
+    [(ngModel)] = 'paciente.contact'
+    value = 'paciente.contact'
+    type="text">
+    
+    <label>Endereço</label>
+    <input 
+    name = 'streat'
+    matInput
+    [(ngModel)] = 'paciente.streat'
+    value = 'paciente.streat'
+    type="text">
+    
+    <label>Bairro</label>
+    <input 
+    name = 'bairro'
+    matInput
+    [(ngModel)] = 'paciente.bairro'
+    value = 'paciente.bairro'
+    type="text">
+    
+    <label>Cidade</label>
+    <input 
+    name = 'city'
+    matInput
+    [(ngModel)] = 'paciente.city'
+    value = 'paciente.city'
+    type="text">
+    
+    <button (click) = "update()">Atualizar</button>
+    <button (click) = "cancel()">Cancelar</button>
+</div>
+
+</div>
+<app-footer></app-footer>

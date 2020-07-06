@@ -20,6 +20,17 @@
         </option>
     </select>
     
+    <!-- <label > Medico 2</label>
+    <mat-form-field>
+        <mat-select name = 'medic' placeholder = 'Selecione um medico'>
+            <mat-option *ngFor='let medico of medicos' [value]="medico._id">
+                {{medico.name}}
+                <button (click) = 'algo()'> ...</button>
+            </mat-option>
+        </mat-select>
+    </mat-form-field> -->
+
+    
     <label class = "descricao"for="">Descrição</label>
     <input [(ngModel)] = 'consultation.description'
     class = "descricao"type="text" >

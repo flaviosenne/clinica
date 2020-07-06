@@ -7,11 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http'
 
 // Modulos de Terceiros
-import { MatToolbarModule} from '@angular/material/toolbar';
-import { MatSidenavModule }  from '@angular/material/sidenav';
-import {MatSnackBarModule }  from '@angular/material/snack-bar';
-import { MatInputModule} from '@angular/material/input'
-import { MatFormFieldModule} from '@angular/material/form-field'
+import { MaterialModule} from './mterial/mterial.module'
 import { FormsModule } from '@angular/forms'
 
 // Componentes gerado para navegação 
@@ -27,6 +23,11 @@ import { HomeComponent } from './views/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ConsultaComponent } from './views/consulta/consulta.component';
 import { ConsultaUpdateComponent } from './views/consulta-update/consulta-update.component';
+import { PacientesReadComponent } from './views/pacientes-read/pacientes-read.component';
+import { PacienteUpdateComponent } from './views/paciente-update/paciente-update.component';
+import { FuncionariosReadComponent } from './views/funcionarios-read/funcionarios-read.component';
+import { FuncionariosUpdateComponent } from './views/funcionarios-update/funcionarios-update.component';
+
 
 
 
@@ -43,19 +44,19 @@ import { ConsultaUpdateComponent } from './views/consulta-update/consulta-update
     HomeComponent,
     NavComponent,
     ConsultaComponent,
-    ConsultaUpdateComponent
+    ConsultaUpdateComponent,
+    PacientesReadComponent,
+    PacienteUpdateComponent,
+    FuncionariosReadComponent,
+    FuncionariosUpdateComponent
   ],
   imports: [
   BrowserModule,
+  HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatSnackBarModule,
-    HttpClientModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

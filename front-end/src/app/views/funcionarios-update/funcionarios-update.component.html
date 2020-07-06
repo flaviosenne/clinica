@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="conteudo">
+    <div class="funcionario">
+        <span> Cadastro de Funcionario</span>
+
+        <label>Nome</label>
+        <input value = 'funcionario.name'[(ngModel)]="funcionario.name" matInput name="name" type="text">
+
+        <label>Salario</label>
+        <input value = 'funcionario.salario'[(ngModel)]="funcionario.salario" matInput name="salario" type="text">
+
+        <select name="tipo" id="tipo" value = 'tipo'[(ngModel)]='tipo'>
+            <option value="recepcionista">Recepcionista</option>
+            <option value="medico">Medico</option>
+        </select>
+
+        <label class="crm" for="">CRM</label>
+        <input class="crm" value = 'funcionario.crm'[(ngModel)]="funcionario.crm" matInput name="crm" type="text">
+
+        <label class="cpf" for="">CPF</label>
+        <input class="cpf" value='funcionario.cpf'[(ngModel)]="funcionario.cpf" matInput name="cpf" type="text">
+
+
+        <label>Telefone</label>
+        <input value='funcionario.contact'[(ngModel)]="funcionario.contact" matInput name="contact" type="text">
+
+        <label>Endereço</label>
+        <input value='funcionario.streat'[(ngModel)]="funcionario.streat" matInput name="streat" type="text">
+
+        <label>Email</label>
+        <input value='funcionario.email'[(ngModel)]="funcionario.email" matInput name="email" type="email">
+
+        <label>Senha</label>
+        <input value = 'funcionario.senha'[(ngModel)]="funcionario.senha" matInput name="senha" type="password">
+        <button (click)="update()">Atualizar</button>
+        <button (click)="cancel()">Cancelar</button>
+    </div>
+</div>
+<app-footer></app-footer>

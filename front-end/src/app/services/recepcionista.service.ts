@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Recepcionista } from './../model/recepcionista.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -36,6 +36,21 @@ export class RecepcionistaService {
     const url = this.baseUrl+'/'+_id
     console.log('get ', url)
     return this.http.get<Recepcionista>(url)
+  }
+  update(recepcionist: any) {
+    console.log(recepcionist)
+    const url = this.baseUrl + '/' + recepcionist._id
+    return this.http.put(url,recepcionist)
+  }
+
+  delete(id: String) {
+    const url = this.baseUrl
+    return this.http.request('DELETE', url,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body:  {_id: id, auth: '7f74606231e9'}
+    })
   }
 
 

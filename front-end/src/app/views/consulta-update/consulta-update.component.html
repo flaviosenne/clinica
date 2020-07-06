@@ -4,26 +4,24 @@
     <div class="consulta" >
         <span> Consulta </span>
     
-        <label class = "descricao"for="">Data</label>
-        <input disabled [(ngModel)] = 'consulta.date' 
-        class = "descricao"type="text" >
         
     <label class = "descricao"for="">Paciente</label>
-    <input disabled [(ngModel)] = 'consulta.pacient'
+    <input [(ngModel)] = 'consulta.pacient'
     class = "descricao"type="text" >
 
     <label class = "descricao"for="">Medico</label>
-    <input disabled [(ngModel)] = 'consulta.medic'
+    <input [(ngModel)] = 'consulta.medic'
     class = "descricao"type="text" >
 
     <label class = "descricao"for="">Status</label>
-    <input disabled [(ngModel)] = 'consulta.status'
+    <input [(ngModel)] = 'consulta.status'
     class = "descricao"type="text" >
     
     <label class = "descricao"for="">Descrição</label>
-    <input disabled [(ngModel)] = 'consulta.description'
+    <input [(ngModel)] = 'consulta.description'
     class = "descricao"type="text" >
 
+    <button (click) = "update()">Atualizar</button>
     <button (click) = "cancel()">Voltar</button>
 </div>
 </div>

@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 import { Paciente } from '../model/paciente.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -33,5 +33,19 @@ export class PacienteService {
   readById(id: String): Observable<Paciente>{
     const url = this.baseUrl+ '/'+id
     return this.http.get<Paciente>(url)
+  }
+  update(paciente: any) {
+    const url = this.baseUrl + '/' + paciente._id
+    return this.http.put(url, paciente)
+  }
+
+  delete(id: String) {
+    const url = this.baseUrl
+    return this.http.request('DELETE', url,{
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body:  {_id: id }
+    })
   }
 }

@@ -27,12 +27,12 @@ export class PacienteComponent implements OnInit {
   salvar(): void{
     this.pacienteService.create(this.paciente).subscribe(() => {
       this.pacienteService.showMessage(this.paciente.name+' criado com sucesso')
-      this.route.navigate(['/home'])
+      this.route.navigate(['/pacientes-read'])
     })
 
   }
 
   cancel():void{
-    this.route.navigate(['/home'])
+    this.route.navigate(['/pacientes-read'])
   }
 }

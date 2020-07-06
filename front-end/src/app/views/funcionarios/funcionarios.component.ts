@@ -38,13 +38,13 @@ export class FuncionariosComponent implements OnInit {
     if(this.tipo == 'medico'){
       this.medicoService.create(this.funcionario).subscribe(()=> {
         this.medicoService.showMessage(this.funcionario.name + ' cadastrado com sucesso')
-        this.route.navigate(['/home'])
+        this.route.navigate(['/funcionario-read'])
       })
     }
     if(this.tipo == 'recepcionista'){
       this.recepcionistaService.create(this.funcionario).subscribe(() =>{
         this.recepcionistaService.showMessage(this.funcionario.name + ' cadastrado co sucesse')
-        this.route.navigate(['/home'])
+        this.route.navigate(['/funcionario-read'])
       })
     }
 
@@ -52,7 +52,7 @@ export class FuncionariosComponent implements OnInit {
   }
 
   cancel():void{
-    this.route.navigate(['/home'])
+    this.route.navigate(['/funcionario-read'])
   }
 
 }

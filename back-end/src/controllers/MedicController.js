@@ -62,8 +62,12 @@ const MedicController = {
             const acesso = await Owner.findOne({ _id })
 
             if (acesso) {
-                const id = req.body._id
-                const obj = await Medic.findByIdAndUpdate(id, req.body)
+                const id = req.params.id
+                const { name, crm, contact, streat, salario, email, senha} =req.body
+                
+                const obj = await Medic.findByIdAndUpdate(id, {
+                    name, crm, contact, streat, salario, email, senha
+                })
                 if (obj) {
 
                     return res.send(obj).end()

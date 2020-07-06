@@ -66,13 +66,17 @@ const RecepcionistController = {
     async update(req, res) {
 
         try {
-            const id = req.body._id
             const { auth } = req.body;
             var _id = auth;
             const acesso = await Owner.findOne({ _id })
 
             if (acesso) {
-                const obj = await Recepcionist.findByIdAndUpdate(id, req.body)
+                const id = req.params.id
+                const { name, contact, streat, salario, email, cpf, senha} =req.body
+                
+                const obj = await Recepcionist.findByIdAndUpdate(id, {
+                    name, contact, streat, salario, email, cpf, senha
+                })
                 if (obj) {
 
                     return res.send(obj).end()
@@ -80,14 +84,15 @@ const RecepcionistController = {
                     return res.send(obj).end()
                 }
             }
-            else {
-                return res.json({ Status: 'Ascess recused' }).end()
+            else{
+                res.json({Status: "Ascess recused"})
             }
         }
         catch (erro) {
             console.log(erro)
             return res.status(500).send(erro)
         }
+        // name, contact, streat, salario, email, cpf, senha
     },
 
     async remove(req, res) {

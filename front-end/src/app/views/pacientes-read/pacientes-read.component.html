@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div>
+<div class="conteudo">
+<button routerLink = '/paciente'>Cadastrar Paciente</button>
+
+   <table>
+       <thead>
+           <td>Nome</td>
+           <td>CPF</td>
+           <td>Telefone</td>
+           <td>Endereço</td>
+           <td>Bairro</td>
+           <td>Cidade</td>
+           <td>Alterar</td>
+           <td>Remover</td>
+        </thead>
+       <tr *ngFor ='let paciente of pacientes'>
+           <td>{{paciente.name}}</td>
+           <td>{{paciente.cpf}}</td>
+           <td>{{paciente.contact}}</td>
+           <td>{{paciente.streat}}</td>
+           <td>{{paciente.bairro}}</td>
+           <td>{{paciente.city}}</td>
+           <td><img src="../../../assets/icons/alterar.png" routerLink = "/paciente-update/{{paciente._id}}"alt=""></td>
+           <td><img src="../../../assets/icons/remover.png" (click) ="delete(paciente._id)"alt=""></td>
+       </tr>
+   </table>
+    
+</div>
+
+</div>
+<app-footer></app-footer>

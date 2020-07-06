@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div>
+<div class="conteudo">
+<button routerLink = '/funcionario'>Cadastrar Fucionario</button>
+
+   <table>
+       <thead>
+           <td>Nome</td>
+           <td>CRM / CPF</td>
+           <td>Salario</td>
+           <td>Contato</td>
+           <td>Email</td>
+           <td>Endereço</td>
+           <td>Atualizar</td>
+           <td>Remover</td>
+        </thead>
+       <tr *ngFor ='let medico of medicos'>
+           <td>{{medico.name}}</td>
+           <td>CRM: {{medico.crm}}</td>
+           <td>{{medico.salario}}</td>
+           <td>{{medico.contact}}</td>
+           <td>{{medico.email}}</td>
+           <td>{{medico.streat}}</td>
+           <td><img src="../../../assets/icons/alterar.png" routerLink = "/funcionario-update/{{medico._id}}"alt=""></td>
+           <td><img src="../../../assets/icons/remover.png" (click)="delete1(medico._id)"alt=""></td>
+       </tr>
+       <tr *ngFor ='let recepcionista of recepcionistas'>
+           <td>{{recepcionista.name}}</td>
+           <td>CPF: {{recepcionista.cpf}}</td>
+           <td>{{recepcionista.salario}}</td>
+           <td>{{recepcionista.contact}}</td>
+           <td>{{recepcionista.email}}</td>
+           <td>{{recepcionista.streat}}</td>
+           <td><img src="../../../assets/icons/alterar.png" routerLink = "/funcionario-update/{{recepcionista._id}}"alt=""></td>
+           <td><img src="../../../assets/icons/remover.png" (click)="delete2(recepcionista._id)"alt=""></td>
+       </tr>
+   </table>
+    
+</div>
+
+</div>
+<app-footer></app-footer>

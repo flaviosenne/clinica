@@ -50,7 +50,7 @@ const PacientController = {
         // return res.send(user)
 
         try {
-            const id = req.body._id
+            const id = req.params.id
             const obj = await Pacient.findByIdAndUpdate(id, req.body)
             if (obj) {// obj foi encontrado
                 //HTTP 204: No content
