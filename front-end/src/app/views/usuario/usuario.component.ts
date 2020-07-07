@@ -53,10 +53,6 @@ export class UsuarioComponent implements OnInit {
       // console.log(this.usuario)
 
   }
-  alterar(): void{
-    // this.funcionario.showMessage('Operação Bem sucedida')
-    console.log('Aletera')
-  }
 
   cancel():void{
     this.route.navigate(['/home'])

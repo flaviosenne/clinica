@@ -1,4 +1,5 @@
 export interface Consulta {
+    auth?: String
     id?: String
     description: String
     pacient?: String

@@ -13,6 +13,7 @@ export class PacientesReadComponent implements OnInit {
 
   pacientes = []
   ngOnInit(): void {
+
     this.pacienteService.read().subscribe(paciente => {
       this.pacientes = paciente
     })

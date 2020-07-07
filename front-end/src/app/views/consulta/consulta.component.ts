@@ -57,8 +57,5 @@ export class ConsultaComponent implements OnInit {
   cancel():void{
     this.route.navigate(['/home'])
   }
-  algo(){
-    alert('oi')
-  }
 
 }

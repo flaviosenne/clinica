@@ -20,8 +20,12 @@ export class ConsultaUpdateComponent implements OnInit {
     date: ''
   }
 
+  medicoNome: String = ''
+  pacienteNome: String  = ''
+
   medico: any[]
   paciente: any[] 
+  
 
   constructor(private consultaService: ConsultaService,
     private router: Router, private route: ActivatedRoute,
@@ -30,16 +34,13 @@ export class ConsultaUpdateComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
     this.consultaService.readById(id).subscribe(consulta => {
-      console.log(consulta)
       
       this.medicoService.readById(consulta.medic).subscribe(medico => {
-        console.log(medico)
-        this.consulta.medic = medico.name
+        this.medicoNome = medico.name
       })
       
       this.pacienteService.readById(consulta.pacient).subscribe(paciente => {
-        console.log(paciente)
-        this.consulta.pacient = paciente.name
+        this.pacienteNome = paciente.name
       })
       
       
@@ -47,9 +48,19 @@ export class ConsultaUpdateComponent implements OnInit {
  
     }) 
 
+    this.medicoService.read().subscribe(medico => {
+      this.medico = medico
+    })
+    this.pacienteService.read().subscribe(paciente => {
+      this.paciente = paciente
+    })
+
   }
-  update(): void{
-    this.consultaService.update(this.consulta)
+  async update(){
+    await this.consultaService.update(this.consulta).subscribe(()=> {
+      this.consultaService.showMessage('Consulta atualizada')
+      this.router.navigate(['/home'])
+    })
 
   }
   cancel(): void{

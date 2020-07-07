@@ -8,22 +8,21 @@
     </div>
     
     <label for="">Nome</label>
-    <input type="text" [(ngModel)] = 'usuario.nome'>
+    <input type="text"disabled [(ngModel)] = 'usuario.nome'>
     
     <label for="">Email</label>
-    <input type="email" [(ngModel)] = 'usuario.email'>
+    <input type="email"disabled [(ngModel)] = 'usuario.email'>
     
     <label for="">Telefone</label>
-    <input type="text" [(ngModel)] = 'usuario.telefone'>
+    <input type="text"disabled [(ngModel)] = 'usuario.telefone'>
     
     <label for="">Endereço</label>
-    <input type="text" [(ngModel)] = 'usuario.endereco'>
+    <input type="text"disabled [(ngModel)] = 'usuario.endereco'>
     
     <label for="">Senha</label>
-    <input type="password" [(ngModel)] = 'usuario.senha'>
+    <input type="password"disabled [(ngModel)] = 'usuario.senha'>
 
-    <button (click) = "alterar()">Salvar</button>
-    <button (click) = "cancel()">Cancelar</button>
+    <button (click) = "cancel()">Voltar</button>
 
 </div>
 </div>

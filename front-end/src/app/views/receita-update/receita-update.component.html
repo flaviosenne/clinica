@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="conteudo">
+
+    <div class="receita">
+        <span> Receita </span>
+    
+        
+        <label for="">Description</label>
+    <select name="tipo" id="tipo" [(ngModel)] = 'receita.consultation'>
+        <option *ngFor ='let consultation of consultas' value="{{consultation._id}}">
+            Descrição: {{consultation.description}}             
+        </option>  
+    </select>
+    
+    
+    
+    <label class = "descricao"for="">Descrição</label>
+    <textarea [(ngModel)] = 'receita.prescription'name="descricao" id="" cols="20" rows="10"></textarea>
+    
+    
+    <button (click) = "update()"> Imprimir </button>
+    <button (click) = "cancel()">Cancelar</button>
+</div>
+</div>
+<app-footer></app-footer>

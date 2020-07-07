@@ -11,6 +11,7 @@ export class ConsultaService {
   baseUrl = 'http://localhost:3333/consultations'
 
   consulta: Consulta = {
+    auth: '7f74606231e9',
     medic: '',
     pacient: '',
     description: ''
@@ -38,14 +39,9 @@ export class ConsultaService {
     return this.http.post<Consulta>(this.baseUrl, consulta)
   }
 
-  update(consulta: Consulta) {
-    const url = this.baseUrl + '/' + consulta.id
-    return this.http.request('PUT', url,{
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-      body:  {_id: consulta.id, consulta }
-    })
+  update(consulta: any) {
+    const url = this.baseUrl + '/' + consulta._id
+    return this.http.put(url, consulta)
   }
 
   delete(id: String) {

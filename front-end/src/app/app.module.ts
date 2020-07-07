@@ -27,6 +27,8 @@ import { PacientesReadComponent } from './views/pacientes-read/pacientes-read.co
 import { PacienteUpdateComponent } from './views/paciente-update/paciente-update.component';
 import { FuncionariosReadComponent } from './views/funcionarios-read/funcionarios-read.component';
 import { FuncionariosUpdateComponent } from './views/funcionarios-update/funcionarios-update.component';
+import { ReceitaReadComponent } from './views/receita-read/receita-read.component';
+import { ReceitaUpdateComponent } from './views/receita-update/receita-update.component';
 
 
 
@@ -48,7 +50,9 @@ import { FuncionariosUpdateComponent } from './views/funcionarios-update/funcion
     PacientesReadComponent,
     PacienteUpdateComponent,
     FuncionariosReadComponent,
-    FuncionariosUpdateComponent
+    FuncionariosUpdateComponent,
+    ReceitaReadComponent,
+    ReceitaUpdateComponent
   ],
   imports: [
   BrowserModule,

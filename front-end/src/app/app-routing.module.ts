@@ -13,6 +13,8 @@ import { ConsultaUpdateComponent } from './views/consulta-update/consulta-update
 import { PacienteUpdateComponent } from './views/paciente-update/paciente-update.component';
 import { FuncionariosReadComponent } from './views/funcionarios-read/funcionarios-read.component';
 import { FuncionariosUpdateComponent } from './views/funcionarios-update/funcionarios-update.component';
+import { ReceitaUpdateComponent } from './views/receita-update/receita-update.component';
+import { ReceitaReadComponent } from './views/receita-read/receita-read.component';
 const routes: Routes = [
   {
     path: "home",
@@ -59,8 +61,16 @@ const routes: Routes = [
     component: FuncionariosUpdateComponent
   },
   {
-    path: 'agenda',
+    path: 'receita',
     component: AgendaComponent
+  },
+  {
+    path: 'receita-read',
+    component: ReceitaReadComponent
+  },
+  {
+    path: 'receita-update/:id',
+    component: ReceitaUpdateComponent
   }
 
 ];

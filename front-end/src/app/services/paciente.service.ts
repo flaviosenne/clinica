@@ -22,6 +22,10 @@ export class PacienteService {
     })
   }
 
+  metodoQualquer(nome: String): String {
+    return `oi ${nome}`
+  }
+
   create(paciente: Paciente): Observable<Paciente> {
     return this.http.post<Paciente>(this.baseUrl, paciente)
   }

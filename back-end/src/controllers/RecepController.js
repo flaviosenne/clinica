@@ -86,7 +86,7 @@ RecepController.update = async (req, res) => {
         _id = consultation
         const idConsultation = await Consultations.findOne({ _id })
 
-        const id = req.body._id
+        const id = req.params.id
         if (consultation) {
             const obj = await Recep.findByIdAndUpdate(id, {
                 prescription,

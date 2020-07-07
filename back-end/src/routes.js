@@ -51,7 +51,7 @@ route.delete('/receptionist', ReceptionistController.remove);
 route.post('/recep', RecepController.create);
 route.get('/recep', RecepController.read);
 route.get('/recep/:id', RecepController.getOne);
-route.put('/recep', RecepController.update);
+route.put('/recep/:id', RecepController.update);
 route.delete('/recep', RecepController.delete);
 
 
@@ -59,7 +59,7 @@ route.delete('/recep', RecepController.delete);
 route.post('/prontuario', MedicalRecordController.create);
 route.get('/prontuario', MedicalRecordController.read);
 route.get('/prontuario/:id', MedicalRecordController.getOne);
-route.put('/prontuario', MedicalRecordController.update);
+route.put('/prontuario/:id', MedicalRecordController.update);
 route.delete('/prontuario', MedicalRecordController.delete);
 
 module.exports =  route;

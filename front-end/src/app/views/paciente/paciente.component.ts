@@ -19,18 +19,25 @@ export class PacienteComponent implements OnInit {
 
   }
 
+  a = []
   constructor(private route: Router, private pacienteService: PacienteService) { }
 
   ngOnInit(): void {
   }
 
+
+
   salvar(): void{
+    this.pacienteService.read().subscribe(paciente => {
+
+    })
     this.pacienteService.create(this.paciente).subscribe(() => {
       this.pacienteService.showMessage(this.paciente.name+' criado com sucesso')
       this.route.navigate(['/pacientes-read'])
     })
 
   }
+
 
   cancel():void{
     this.route.navigate(['/pacientes-read'])

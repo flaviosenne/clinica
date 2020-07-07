@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div>
+<div class="conteudo">
+<button routerLink = '/receita'>Emitir Receita</button>
+
+   <table>
+       <thead>
+           <td>DATA</td>
+           <td>Paciente</td>
+           <td>Medico</td>
+           <td>Descricao</td>
+           <td>Atualizar</td>
+           <td>Remover</td>
+        </thead>
+       <tr *ngFor ='let receita of receita'>
+           <td>{{receita.date | date: 'dd/MM/yyyy'}}</td>
+           <td>{{receita.consultation?.pacient?.name}}</td>
+           <td>{{receita.consultation?.medic?.name}}</td>
+           <td>{{receita.prescription}}</td>
+           <td><img src="../../../assets/icons/alterar.png" routerLink = "/receita-update/{{receita._id}}"alt=""></td>
+           <td><img src="../../../assets/icons/remover.png" (click)="delete(receita._id)"alt=""></td>
+       </tr>
+   </table>
+    
+</div>
+
+</div>
+<app-footer></app-footer>

@@ -33,11 +33,12 @@ export class AgendaComponent implements OnInit {
   imprimir(): void{
     this.receitaService.create(this.receita).subscribe(() => {
       this.receitaService.showMessage('Imprimido')
+      this.route.navigate(['/receita-read'])
     })
-    console.log('imprimir')
+    
   }
-
+  
   cancel():void{
-    this.route.navigate(['/home'])
+    this.route.navigate(['/receita-read'])
   }
 }

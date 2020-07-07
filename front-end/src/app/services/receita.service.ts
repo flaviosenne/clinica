@@ -21,19 +21,20 @@ export class ReceitaService {
   }
 
   create(receita: Receita): Observable<Receita> {
+    console.log('receita create', receita)
     return this.http.post<Receita>(this.baseUrl, receita)
   }
   read(): Observable<any[]>{
     return this.http.get<any[]>(this.baseUrl)
   }
+  readById(id: String): Observable<Receita>{
+    const url = this.baseUrl+'/'+id
+    console.log('get ', url)
+    return this.http.get<Receita>(url)
+  }
   update(receita: any) {
     const url = this.baseUrl + '/' + receita._id
-    return this.http.request('PUT', url,{
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-      body:  {_id: receita.id, receita }
-    })
+    return this.http.put(url, receita)
   }
 
   delete(id: String) {
